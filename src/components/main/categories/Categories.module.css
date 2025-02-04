@@ -1,5 +1,50 @@
-
+.categoriesSection {
+  padding: 40px;
+  color: #424436;
+}
 
 .categoriesSectionHeader {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoriesSectionHeader > .h2 {
+  font-family: Montserrat;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.categoriesSectionHeader > button {
+  display: inline-block;
+  padding: 5px 20px;
+  height: 30px;
+  font-size: 16px;
+  align-self: center;
+  border: #dddddd 1px solid;
+  border-radius: 5px;
+  color: #8b8b8b;
+  background-color: transparent;
+}
+
+.categoriesCards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoriesCards > div {
+  cursor: pointer;
+}
+
+.categoriesCards > div > p {
+  text-align: center;
+
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.categoriesCards > div > img {
+  border-radius: 15px;
+  width: 316px;
+  height: 350px;
 }

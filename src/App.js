@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Categories from './components/main/categories/Categories';
 
 
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-      </Routes>
-    </Router>
+    <Categories />
+    // <Router>
+    //   <Routes>
+    //     {/* <Route path="/" element={<Home />} /> */}
+    //   </Routes>
+    // </Router>
   );
 }
 

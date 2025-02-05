@@ -14,6 +14,7 @@ export default function Categories() {
     <div className={s.categoriesSection}>
         <div className={s.categoriesSectionHeader}>
         <h2 className={s.h2}>Categories</h2>
+        {/* <div className={s.line}></div> */}
         <button id='allCategories'>All categories</button>
         </div>
         

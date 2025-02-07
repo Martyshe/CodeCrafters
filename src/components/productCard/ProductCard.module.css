@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.cardsContainer {
+ position: relative;
+}
+
+img {
+  object-fit: contain;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 0.3rem;
+}
+
+.itemName {
+  white-space: nowrap; /* Запрещает перенос на новую строку */
+  overflow: hidden; /* Обрезает текст, выходящий за границы */
+  text-overflow: ellipsis; /* Добавляет "..." в конце */
+  width: 19.75rem; /* Ограничиваем ширину */
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.actualPrice {
+  padding: 1rem 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.oldPrice {
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration-line: line-through;
+  color: #8b8b8b;
+}
+
+.discountBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.3rem;
+  }
+
+  .badgesContainer {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .badgesContainer > img {
+    width: 3rem;
+    height: 3rem;
+  }

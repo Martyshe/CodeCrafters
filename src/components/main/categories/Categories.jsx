@@ -8,9 +8,9 @@ export default function Categories() {
   useEffect(() => {
     fetch("http://localhost:3333/categories/all")
       .then((response) => response.json())
-      .then( data => console.log(data))
+      // .then( data => console.log(data))
       .then((data) => {
-        
+        // Оставляем первые 4 категории и запихиваем в State
           const slicedCategories = data.slice(0, 4);
 
           setCategory(slicedCategories);
@@ -25,14 +25,14 @@ export default function Categories() {
           <h2>Categories</h2>
         </div>
         <div className={s.lineButtonCont}>
-          {/* Линия, ведущая к кнопке 'All sales' */}
+          {/* Линия, ведущая к кнопке 'All categories' */}
           <div className={s.line}></div> 
           <div>
             <button>All categories </button>
           </div>
         </div>
       </div>
-      <div className={s.cardsContainer}>
+      <div className={s.categoriesContainer}>
         {category.map((el) => (
           <CategoryCard key={el.id} {...el} />
         ))}

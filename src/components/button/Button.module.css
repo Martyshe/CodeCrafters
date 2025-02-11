@@ -1,0 +1,25 @@
+.button {
+    background-color: #92A134;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 1rem 4rem;
+    margin-top: 2rem;  /* Добавляем отступ сверху, чтобы кнопка не слипалась с текстом */
+    font-size: 1.1rem;
+    cursor: pointer; /* Изменяем курсор на указатель при наведении */
+}
+    
+  
+  /* Эффект при наведении на кнопку */
+  .button:hover {
+    background-color: #76a82e;
+  }
+  /* делают интерфейс более гибким и сбалансированным, позволяя кнопке оставаться красиво выровненной в любой ситуации */
+  .checkoutButtonWrapper {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   
+}

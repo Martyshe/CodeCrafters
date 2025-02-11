@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.banner {
+    position: relative; /*Позволяет позиционировать вложенные элементы относительно этой секции */
+    width: 100%;  /* Фиксированная ширина баннера */
+    height: 37.5rem;/* Фиксированная высота баннера */
+    display: flex; /* Используем flexbox для выравнивания содержимого */
+    align-items: center;  /* Центрируем элементы по вертикали */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    text-align: center; /* Выравниваем текст по центру */
+    color: white;
+  
+    }
+ 
+  
+  .bannerImage {
+    width: 100%;
+    /* height: auto; */
+    object-fit:fill; /*Изображение покрывает весь контейнер */
+    position: absolute;/*  Позволяет разместить изображение под текстом */
+    z-index: -1; /*Отправляем картинку под контент */
+    list-style: none;  /* Убираем стандартные стили списков (если изображение внутри списка) */
+  }
+  /* Контейнер для текста внутри баннера */
+  .content {
+    padding-top:4.375rem;
+    text-align: left; /* Выравниваем текст по левому краю */
+    padding-left: 2.5rem; /* Отступ слева для удобного размещения текста */
+    border-radius: 0.625rem;
+    /* z-index: 1; */
+    width: 100%;
+    margin-bottom:13.125rem; /* Отодвигаем контент вверх (почему margin-bottom, если вниз нет отступа?) */
+  }
+  
+  .title {
+    font-weight: 700;  /* Делаем шрифт жирным */
+    width: 85rem; /* Фиксированная ширина заголовка */
+    font-family: Montserrat;
+    /* height: 212px;   */
+    font-size: 6rem;
+  }
+
+  /* Для экрана 1440px и больше */
+/* .banner {
+  height: 100vh;
+} */
+
+.title {
+  font-size: 6rem; /* Размер шрифта для большого экрана */
+}
+
+  /* Для экрана 1000px */
+@media (max-width: 1439px) and (min-width: 1000px) {
+  .banner {
+    height: 80vh; /* Немного меньше высота */
+  }
+  .title {
+    font-size: 5rem; /* Уменьшаем размер шрифта */
+  }
+}
+
+/* Для экрана 768px */
+@media (max-width: 999px) and (min-width: 768px) {
+  .banner {
+    height: 60vh; /* Еще меньше высота */
+  }
+  .title {
+    font-size: 4rem; /* Уменьшаем размер шрифта */
+  }
+}
+
+/* Для экрана 480px */
+@media (max-width: 767px) and (min-width: 480px) {
+  .banner {
+    height: 50vh; /* Еще меньше высота */
+  }
+  .title {
+    font-size: 3rem; /* Еще меньше размер шрифта */
+  }
+}
+
+/* Для экрана 360px */
+@media (max-width: 479px) {
+  .banner {
+    height: 45vh; /* Меньше высота для мобильных экранов */
+  }
+  .title {
+    font-size: 2.5rem; /* Очень маленький шрифт для маленьких экранов */
+  }
+}

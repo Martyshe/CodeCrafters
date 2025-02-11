@@ -5,12 +5,14 @@
 
 .contactTitle {
     margin-bottom: 2rem;
+    font-size: 4rem;
 }
 
 .contactGrid {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 2rem;
+    max-width: 100%;
 }
 
 .contactBox {
@@ -18,10 +20,11 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     gap: 16px;
     border-radius: 10px;
-
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
 }
 
 .contactBox > h3 {
@@ -30,15 +33,15 @@ font-size: 1.25rem;
 color: #8B8B8B;
 }
 
+.contactBox > a{
+    white-space: nowrap;
+}
+
 .contactBox > :nth-child(2) {
     font-size: 2.5rem;
     font-weight: 600;
     text-align: start;
-}
-
-.contactBox > :nth-child(4) {
-    justify-content: start;
-    align-self: start;
+    /* border: 1px solid red; */
 }
 
 .socialIcons {
@@ -46,6 +49,8 @@ color: #8B8B8B;
     width: auto;
     gap: 1rem;
 }
+
+
 
 a.phoneLink {
   text-decoration: none;
@@ -67,16 +72,12 @@ a.phoneLink {
   border-radius: 0.625rem;
 }
 
-/* @media (max-width: 1440px) {
-
+@media (max-width: 1440px) {
 
     .contactGrid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        width: 100%;
         gap: 20px;
     }
-
 
     .map {
         width: 100%;
@@ -84,14 +85,12 @@ a.phoneLink {
 
 }
 
-
-
-
 @media (max-width: 1000px) {
-
     .contactGrid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .map {
         width: 100%;
     }
 
@@ -99,37 +98,95 @@ a.phoneLink {
 
 @media (max-width: 768px) {
     .contactTitle {
-        font-size: 2rem; 
-       
+        font-size: 3.5rem; 
+    }
+    
+    .contactGrid {
+        grid-template-columns: 2fr 1fr;
     }
 
-    .contactGrid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+    .contactBox{
+        padding: 2rem;
+    }
+
+    .map {
         width: 100%;
     }
+
 }
 
 @media (max-width: 480px) {
     .contactTitle {
-        font-size: 1rem; 
+        font-size: 3rem; 
     }
 
+    .contactGrid> :nth-child(2){
+        flex-direction: row;
+    }
+
+    .phoneLink{
+        font-size: 10px;
+    }
+
+    .contactBox > h3{
+        font-size: 1.1rem;
+    }
+
+    .contactBox > a ,
+    .contactBox > p {
+        font-size: 1.75rem !important; 
+    }
+    
+
     .contactGrid {
-        display: grid;
         grid-template-columns: 1fr;
+
+    }
+
+    .contactBox{
+        padding: 1rem;
+    }
+
+    .map {
         width: 100%;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
+
     .contactTitle {
-        font-size: 0.5rem; 
+        font-size: 2.5rem; 
+    }
+
+    .contactGrid> :nth-child(2){
+        flex-direction: row;
+    }
+
+    .phoneLink{
+        font-size: 10px;
+    }
+
+    .contactBox > h3{
+        font-size: 1.1rem;
+    }
+
+    .contactBox > a ,
+    .contactBox > p {
+        font-size: 1.75rem !important; 
+    }
+    
+    .contactBox{
+        width: 100%;
+        padding: 1rem;
     }
 
     .contactGrid {
-        display: grid;
         grid-template-columns: 1fr;
         width: 100%;
+
     }
-} */
+
+    .map {
+        width: 100%;
+    }
+}

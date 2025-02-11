@@ -31,14 +31,17 @@ h2 {
     flex-grow: 1;
 }
 
-button {
-        width: 5rem;
-        height: 2rem;
+.lineButtonCont > div > button {
+        padding: 8px 16px;
+        width: auto;
+        height: 2.25rem;
         font-size: 1rem;
         align-self: center;
         color: #8B8B8B;
         border: #DDDDDD 1px solid;
         border-radius: 0.3rem;
+        background-color: transparent;
+
 }
 
 .cardsContainer {

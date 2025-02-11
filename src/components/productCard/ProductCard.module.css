@@ -1,13 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 .cardsContainer {
- position: relative;
+  position: relative;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px #dddddd solid;
 }
 
-img {
-  object-fit: contain;
-  width: 20rem;
-  height: 20rem;
-  border-radius: 0.3rem;
+.cardsContainer > img {
+  /* border-radius: 10px; */
+
+  object-fit: cover;
+  width: 100%;
+  max-width: 316px;
+  height: 100%;
+  height: 284px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #fffff1;
+  /* border: 1px #DDDDDD solid; */
+}
+
+.divideLine {
+  height: 0.5px;
+  border: 0.5px #dddddd solid;
 }
 
 .itemName {
@@ -35,27 +50,27 @@ img {
 }
 
 .discountBadge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: orange;
-    color: white;
-    font-weight: bold;
-    padding: 0.5rem 1.2rem;
-    border-radius: 0.3rem;
-  }
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.3rem;
+  max-width: 4rem;
+}
 
-  .badgesContainer {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
+.badgesContainer {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
 
-  }
-
-  .badgesContainer > img {
-    width: 3rem;
-    height: 3rem;
-  }
+.badgesContainer > img {
+  width: 3rem;
+  height: 3rem;
+}

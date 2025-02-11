@@ -21,7 +21,7 @@ export const DiscountForm = () => {
         console.log("Form submitted:",data)
     }
     return (
-        <div className={styles.container}>
+        <div className={styles.mainFormContainer}>
             <h2 className={styles.title}>5% off on the first order</h2>
                 <div className={styles.formContainer}>
                     <div className={styles.formContainerImg}>

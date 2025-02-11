@@ -12,11 +12,13 @@ export default function ProductCard({ image, title, discont_price, price }) {
   return (
     <div className={s.cardsContainer}>
       <img src={`http://localhost:3333${image}`} alt={title}></img>
+        <div className={s.divideLine}></div>
       <p className={s.itemName}>{title}</p>
       <p className={s.actualPrice}>
         {`$${discont_price}`}
         <span className={s.oldPrice}>{`$${price}`}</span>
       </p>
+
       {/* Если есть скидка, показываем плашку со скидкой*/}
       {discountPercentage > 0 && (
         <div className={s.discountBadge}>{discountPercentage}%</div>

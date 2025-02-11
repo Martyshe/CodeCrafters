@@ -22,19 +22,19 @@
   }
   /* Контейнер для текста внутри баннера */
   .content {
-    padding-top:4.375rem;
+    padding: 80px 40px;
+    /* padding-top:4.375rem; */
     text-align: left; /* Выравниваем текст по левому краю */
-    padding-left: 2.5rem; /* Отступ слева для удобного размещения текста */
+    /* padding-left: 2.5rem; Отступ слева для удобного размещения текста */
     border-radius: 0.625rem;
     /* z-index: 1; */
     width: 100%;
-    margin-bottom:13.125rem; /* Отодвигаем контент вверх (почему margin-bottom, если вниз нет отступа?) */
+    /* margin-bottom:13.125rem; Отодвигаем контент вверх (почему margin-bottom, если вниз нет отступа?) */
   }
   
   .title {
     font-weight: 700;  /* Делаем шрифт жирным */
     width: 85rem; /* Фиксированная ширина заголовка */
-    font-family: Montserrat;
     /* height: 212px;   */
     font-size: 6rem;
   }

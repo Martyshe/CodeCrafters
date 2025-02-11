@@ -1,5 +1,5 @@
 
-.container {
+.mainFormContainer {
     display: grid;
     font-family: Montserrat, sans-serif;
     height: auto;
@@ -83,8 +83,10 @@
 }
 
 .button {
+    margin-top: 1rem;
     background-color: white;
     color: #424436;
+    height: auto;
     padding: 1rem;
     border: none;
     border-radius: 0.3rem;

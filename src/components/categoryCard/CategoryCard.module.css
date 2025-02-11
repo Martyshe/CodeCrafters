@@ -1,10 +1,13 @@
-
-
-img {
-    height: 20rem;
+.categoryCard > img {
+    height: 22rem;
     width: 19rem;
     object-fit: cover;
     border-radius: 0.5rem;
+}
+
+.categoryCard > img:nth-child(1) {
+    height: 22rem;
+    width: 19rem;
 }
 
 p {

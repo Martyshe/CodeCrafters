@@ -19,7 +19,7 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className={s.container}>
+    <div className={s.mainContainer}>
       <div className={s.header}>
         <div>
           <h2>Categories</h2>

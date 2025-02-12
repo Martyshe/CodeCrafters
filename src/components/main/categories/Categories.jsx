@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import s from "./Categories.module.css";
 import CategoryCard from "../../categoryCard/CategoryCard";
+import { back } from "../../../constants";
 
 export default function Categories() {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3333/categories/all")
+    fetch(`${back}/categories/all`)
       .then((response) => response.json())
       // .then( data => console.log(data))
       .then((data) => {
@@ -15,7 +16,7 @@ export default function Categories() {
 
           setCategory(slicedCategories);
       })
-      .catch((error) => console.error("Ошибка:", error));
+      .catch(() => alert('Перезагрузите страницу'));
   }, []);
 
   return (

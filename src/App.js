@@ -6,6 +6,7 @@ import Categories from './components/main/categories/Categories';
 import { DiscountForm } from './components/main/discountForm/DiscountForm';
 import SaleSection from './components/main/saleSection/SaleSection';
 import ContactSection from './components/footer/contactSection/ContactSection';
+import AppRouter from './routes/AppRouter';
 
 
 
@@ -18,6 +19,7 @@ function App() {
     <DiscountForm/>
     <SaleSection />
     <ContactSection/>
+    <AppRouter />
     </>
    
   );

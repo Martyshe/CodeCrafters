@@ -2,6 +2,7 @@ import React from "react";
 import s from "./ProductCard.module.css";
 import vector from "../../badges/Basket.png";
 import basket from "../../badges/Vector.png";
+import { back } from "../../constants";
 
 export default function ProductCard({ image, title, discont_price, price }) {
   // Если имеется скидка, высчитывается её процент
@@ -11,7 +12,7 @@ export default function ProductCard({ image, title, discont_price, price }) {
       : null;
   return (
     <div className={s.cardsContainer}>
-      <img src={`http://localhost:3333${image}`} alt={title}></img>
+      <img src={`${back}${image}`} alt={title}></img>
         <div className={s.divideLine}></div>
       <p className={s.itemName}>{title}</p>
       <p className={s.actualPrice}>

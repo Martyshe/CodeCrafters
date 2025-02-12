@@ -1,10 +1,11 @@
 import React from 'react'
 import s from './CategoryCard.module.css'
+import { back } from '../../constants'
 export default function CategoryCard( { image, title}) {
   return (
     
         <div className={s.categoryCard}>
-        <img src={`http://localhost:3333${image}`} alt={title}></img>
+        <img src={`${back}${image}`} alt={title}></img>
             <p>{title}</p>
         </div>
 

@@ -5,7 +5,7 @@
     border-radius: 0.3rem;
     padding: 1rem 4rem;
     margin-top: 2rem;  /* Добавляем отступ сверху, чтобы кнопка не слипалась с текстом */
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     cursor: pointer; /* Изменяем курсор на указатель при наведении */
 }
     
@@ -22,4 +22,11 @@
     align-items: center;
 
    
+}
+
+@media (max-width: 480px) {
+  .button{
+    padding:  0.75rem 3.2rem;
+    font-size: 1.1rem;
+  }
 }

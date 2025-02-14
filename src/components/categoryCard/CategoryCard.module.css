@@ -1,17 +1,45 @@
-.categoryCard > img {
-    height: 22rem;
-    width: 19rem;
-    object-fit: cover;
-    border-radius: 0.5rem;
+.categoryCard {
+    width: 316px;
+    height: 392px;
 }
 
-.categoryCard > img:nth-child(1) {
-    height: 22rem;
-    width: 19rem;
+.categoryCard > img {
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
 
 p {
     text-align: center;
     color: #424436;
     font-size: 1.25rem;
+    /* padding: 1rem; */
+}
+
+
+
+@media (max-width: 1000px) {
+    
+    .categoryCard {
+        width: 354px;
+        height: 292px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    .categoryCard {
+        width: 210px;
+        height: 289px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .categoryCard {
+        width: 320px;
+        height: 255px;
+    }
+
 }

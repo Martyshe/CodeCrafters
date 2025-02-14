@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 .mainContainer {
     max-width: 100%;
     padding: 2rem;
@@ -48,7 +46,37 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 1.25rem;
+    padding-bottom: 5rem;
 }
 
 
+
+@media (max-width: 768px) {
+    
+     h2 {
+        font-size: 56px !important
+    }
+}
+
+@media (max-width: 480px) {
+    
+    h2 {
+       font-size: 48px !important
+   }
+
+   .lineButtonCont {
+    display: none;
+   }
+}
+
+/* @media (max-width: 360px) {
+    
+    h2 {
+       font-size: 40px !important
+   }
+
+   .lineButtonCont {
+    display: none;
+   }
+} */

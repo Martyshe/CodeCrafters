@@ -1,0 +1,169 @@
+
+.filterContainer {
+    padding-left: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.filterContainerProducts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    align-items: center; 
+    gap: 1rem; 
+}
+/* 
+.title {
+    font-size: 64px;
+    font-weight: 700;
+    text-align: left;
+    padding-bottom: 2.5rem;
+} */
+
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input {
+    padding: 8px 0 8px 16px;
+    width: 112px;
+    height: 36px;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px; 
+}
+
+
+.inputTo {
+    margin-right: 2.5rem;
+}
+
+.input::placeholder {
+    color: #8B8B8B;
+    font-size: 1rem;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center; 
+    
+}
+
+.inputDiscounted {
+    margin-left: 1rem; 
+    margin-right: 2.5rem;
+    width: 36px; 
+    height: 36px;
+    
+    
+}
+
+.select {
+    width: 200px; 
+    padding: 8px 8px 8px 16px;
+    font-size: 16px; 
+    border: 1px solid #DDDDDD;
+    border-radius: 4px; 
+    appearance: none; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>'); /* Кастомная стрелка */
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 20px; 
+    cursor: pointer; 
+}
+
+span {
+    font-size: 1.25rem;
+} 
+
+
+@media (max-width: 1000px) and (min-width: 769px) {
+    .filterContainerProducts {
+        flex-direction: row; 
+        flex-wrap: nowrap;
+    }
+
+    .filterGroup {
+        flex-direction: row; 
+        flex-wrap: nowrap;
+    }
+
+    span {
+        white-space: nowrap; 
+    }
+
+    .input {
+        width: 90px; /* Уменьшаем ширину input */
+        padding: 6px 0 6px 12px; /* Уменьшаем padding */
+    }
+
+    .select {
+        width: 160px; /* Уменьшаем ширину select */
+        padding: 6px 6px 6px 12px; /* Уменьшаем padding */
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        background-size: 16px; /* Уменьшаем размер кастомной стрелки */
+    }
+
+    .inputDiscounted {
+        width: 30px; /* Уменьшаем ширину checkbox */
+        height: 30px; /* Уменьшаем высоту checkbox */
+    }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+    .filterContainerProducts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filterGroup {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .select {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filterContainerProducts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filterGroup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .input, .select, .checkboxContainer {
+        width: 100%;
+        margin-right: 0;
+    }
+    .inputTo {
+        margin-right: 0;
+    }
+    .inputDiscounted {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .filterContainerProducts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filterGroup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .input, .select, .checkboxContainer {
+        width: 100%;
+        margin-right: 0;
+    }
+    .inputTo {
+        margin-right: 0;
+    }
+    .inputDiscounted {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

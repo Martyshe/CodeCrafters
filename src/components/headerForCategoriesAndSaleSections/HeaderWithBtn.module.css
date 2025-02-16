@@ -1,0 +1,40 @@
+.mainContainer {
+  max-width: 100%;
+  padding: 2rem;
+  color: #424436;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.lineButtonCont {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.line {
+  border: 1px solid #dddddd;
+  height: 1px;
+  flex-grow: 1;
+}
+
+button {
+  padding: 8px 16px;
+  width: auto;
+  min-height: 2.25rem;
+  font-size: 1rem;
+  align-self: center;
+  color: #8b8b8b;
+  border: #dddddd 1px solid;
+  border-radius: 0.3rem;
+  background-color: transparent;
+}

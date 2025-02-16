@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../productCard/ProductCard";
 import s from "./SaleSection.module.css";
 
-export default function SaleSection() {
+export default function SaleSection({ amount }) {
   const [discountItem, setDiscountItem] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function SaleSection() {
         // Перемешиваем массив и берем 4 случайных элемента
         const randomItems = discountedItems
           .sort(() => Math.random() - 0.5)
-          .slice(0, 4);
+          .slice(0, amount);
 
         setDiscountItem(randomItems);
       })
@@ -25,18 +25,6 @@ export default function SaleSection() {
 
   return (
     <div className={s.container}>
-      <div className={s.header}>
-        <div>
-          <h2>Sale</h2>
-        </div>
-        <div className={s.lineButtonCont}>
-          {/* Линия, ведущая к кнопке 'All sales' */}
-          <div className={s.line}></div> 
-          <div>
-            <button>All sales</button>
-          </div>
-        </div>
-      </div>
       <div className={s.cardsContainer}>
         {discountItem.map((el) => (
           <ProductCard key={el.id} {...el} />

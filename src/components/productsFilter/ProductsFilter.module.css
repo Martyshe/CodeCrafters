@@ -11,13 +11,13 @@
     align-items: center; 
     gap: 1rem; 
 }
-
+/* 
 .title {
     font-size: 64px;
     font-weight: 700;
     text-align: left;
     padding-bottom: 2.5rem;
-}
+} */
 
 .filterGroup {
     display: flex;
@@ -75,3 +75,95 @@
 span {
     font-size: 1.25rem;
 } 
+
+
+@media (max-width: 1000px) and (min-width: 769px) {
+    .filterContainerProducts {
+        flex-direction: row; 
+        flex-wrap: nowrap;
+    }
+
+    .filterGroup {
+        flex-direction: row; 
+        flex-wrap: nowrap;
+    }
+
+    span {
+        white-space: nowrap; 
+    }
+
+    .input {
+        width: 90px; /* Уменьшаем ширину input */
+        padding: 6px 0 6px 12px; /* Уменьшаем padding */
+    }
+
+    .select {
+        width: 160px; /* Уменьшаем ширину select */
+        padding: 6px 6px 6px 12px; /* Уменьшаем padding */
+        font-size: 14px; /* Уменьшаем размер шрифта */
+        background-size: 16px; /* Уменьшаем размер кастомной стрелки */
+    }
+
+    .inputDiscounted {
+        width: 30px; /* Уменьшаем ширину checkbox */
+        height: 30px; /* Уменьшаем высоту checkbox */
+    }
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+    .filterContainerProducts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filterGroup {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .select {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filterContainerProducts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filterGroup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .input, .select, .checkboxContainer {
+        width: 100%;
+        margin-right: 0;
+    }
+    .inputTo {
+        margin-right: 0;
+    }
+    .inputDiscounted {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .filterContainerProducts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .filterGroup {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .input, .select, .checkboxContainer {
+        width: 100%;
+        margin-right: 0;
+    }
+    .inputTo {
+        margin-right: 0;
+    }
+    .inputDiscounted {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

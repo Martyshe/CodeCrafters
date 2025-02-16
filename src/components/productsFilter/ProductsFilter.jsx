@@ -31,7 +31,7 @@ const ProductsFilter = ({ onFilterChange }) => {
 
     return (
         <div className={styles.filterContainer}>
-            <h2 className={styles.title}>Products Filter</h2>
+            {/* <h2 className={styles.title}>Products Filter</h2> */}
             <div className={styles.filterContainerProducts}>
                 <div className={styles.filterGroup}>
                     <span>Price</span>
@@ -82,46 +82,45 @@ const ProductsFilter = ({ onFilterChange }) => {
 export default ProductsFilter;
 
 
-    {/* <ProductsFilter onFilterChange={handleFilterChange} /> */}
-    {/* <div>
-            <ProductsFilter onFilterChange={handleFilterChange} />
-            <div id="products-section">
-                <ul>
-                    {products.map((product) => (
-                        <li key={product.id}>
-                            {product.name} - ${product.price} {product.discounted && "(Discounted)"}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div> */}
-
-        const [filters, setFilters] = useState({});
+const [filters, setFilters] = useState({});
 const [products, setProducts] = useState([]);
 
-const handleFilterChange = useCallback((newFilters) => {
-    setFilters(newFilters);
-    sortProducts(newFilters.sortOrder);
-    console.log("Updated filters:", newFilters);
-},[]);  
+// const handleFilterChange = useCallback((newFilters) => {
+//     setFilters(newFilters);
+//     sortProducts(newFilters.sortOrder);
+//     console.log("Updated filters:", newFilters);
+// },[]);  
 
-const sortProducts = (sortOrder) => {
-  let sortedProducts = [...products];
+// const sortProducts = (sortOrder) => {
+//   let sortedProducts = [...products];
 
-  switch (sortOrder) {
-      case "descending price":
-          sortedProducts.sort((a, b) => b.price - a.price);
-          break;
-      case "ascending price":
-          sortedProducts.sort((a, b) => a.price - b.price);
-          break;
-      case "alphabetically":
-          sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-          break;
-      default:
-          // По умолчанию (by default) сортировка не изменяется
-          break;
-  }
+//   switch (sortOrder) {
+//       case "descending price":
+//           sortedProducts.sort((a, b) => b.price - a.price);
+//           break;
+//       case "ascending price":
+//           sortedProducts.sort((a, b) => a.price - b.price);
+//           break;
+//       case "alphabetically":
+//           sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+//           break;
+//       default:
+//           // По умолчанию (by default) сортировка не изменяется
+//           break;
+//   }
 
-  setProducts(sortedProducts);
-};
+//   setProducts(sortedProducts);
+// };
+
+{/* <div>
+<ProductsFilter onFilterChange={handleFilterChange} />
+<div id="products-section">
+    <ul>
+        {products.map((product) => (
+            <li key={product.id}>
+                {product.name} - ${product.price} {product.discounted && "(Discounted)"}
+            </li>
+        ))}
+    </ul>
+</div>
+</div> */}

@@ -29,7 +29,7 @@ h2 {
 }
 
 button {
-  padding: 8px 16px;
+  padding: 8px;
   width: auto;
   min-height: 2.25rem;
   font-size: 1rem;
@@ -42,34 +42,40 @@ button {
 
 .categoriesContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns:  1fr;
   gap: 1.25rem;
   padding-bottom: 3rem;
 }
 
-@media (max-width: 768px) {
+
+@media (min-width: 1000px) {
+  .categoriesContainer {
+    grid-template-columns: repeat(4, 1fr) !important
+  }
+}
+
+@media (min-width: 768px) {
   h2 {
     font-size: 56px !important;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
   h2 {
     font-size: 48px !important;
   }
-
-  .lineButtonCont {
-    display: none;
+  .categoriesContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* @media (max-width: 360px) {
+@media (max-width: 360px) {
     
     h2 {
        font-size: 40px !important
    }
-
-   .lineButtonCont {
-    display: none;
-   }
-} */
+   .categoriesContainer {
+    grid-template-columns: 1fr;
+  }
+  
+}

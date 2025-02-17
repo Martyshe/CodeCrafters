@@ -27,8 +27,8 @@ h2 {
   flex-grow: 1;
 }
 
-button {
-  padding: 8px 16px;
+.lineButtonCont button {
+  padding: 8px;
   width: auto;
   min-height: 2.25rem;
   font-size: 1rem;
@@ -37,4 +37,16 @@ button {
   border: #dddddd 1px solid;
   border-radius: 0.3rem;
   background-color: transparent;
+}
+
+
+
+@media (max-width: 360px) {
+  
+}
+
+@media (max-width: 500px) {
+  .lineButtonCont {
+    display: none;
+  }
 }

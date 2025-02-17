@@ -10,7 +10,7 @@ export default function AllSalesPage() {
   };
   return (
     <div>
-      <h2 style={style}>Discountd items</h2>
+      <h2 style={style}>Discounted items</h2>
       <SaleSection amount={12} />
     </div>
   );

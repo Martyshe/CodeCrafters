@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import ProductList from "../components/productList/ProductList";
 import ProductsFilter from "../components/productsFilter/ProductsFilter";
 import { back } from "../constants";
-import SaleSection from "../components/main/saleSection/SaleSection";
 
 export default function AllProductsPage() {
   const [products, setProducts] = useState([]); // Все продукты
@@ -11,7 +10,7 @@ export default function AllProductsPage() {
   const [filters, setFilters] = useState({
     priceFrom: "",
     priceTo: "",
-    discont_price: false,
+    discounted: false,
     sortOrder: "by default",
   });
 
@@ -49,9 +48,9 @@ export default function AllProductsPage() {
       );
     }
 
-    if (filters.discount) {
+    if (filters.discounted) {
       console.log("Filtering by discount"); // Логирование фильтрации по скидке
-      filtered = SaleSection; // Используем данные из SaleSection
+      filtered = filtered.filter( product => product.discont_price != null)
     }
 
 
@@ -65,8 +64,8 @@ export default function AllProductsPage() {
         break;
       case "alphabetically":
         filtered.sort((a, b) => {
-          if (a.name && b.name) {
-            return a.name.localeCompare(b.name);
+          if (a.title && b.title) {
+            return a.title.localeCompare(b.title);
           }
           return 0; // Если name отсутствует, не меняем порядок
         });
@@ -89,8 +88,8 @@ export default function AllProductsPage() {
 
   
   return (
-    <div >
-      <h2 >All products</h2>
+    <div style={{padding: '2rem', color: '#424436'}}>
+      <h2 style={{paddingBottom: '2rem'}}>All products</h2>
       <ProductsFilter onFilterChange={handleFilterChange} />
       <div id="products-section">
        { <ProductList products={filteredProducts} />}

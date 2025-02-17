@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../productCard/ProductCard";
 import s from "./SaleSection.module.css";
+import { back } from "../../../constants";
 
 export default function SaleSection({ amount }) {
   const [discountItem, setDiscountItem] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3333/products/all")
+    fetch(`${back}/products/all`)
       .then((response) => response.json())
       // .then( data => console.log(data))
       .then((data) => {

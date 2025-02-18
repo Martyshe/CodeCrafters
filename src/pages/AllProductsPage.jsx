@@ -17,8 +17,8 @@ export default function AllProductsPage() {
   const { filteredProducts, handleFilterChange } = useProductFilter(initialFilters);
 
   return (
-    <div>
-      <h2>All products</h2>
+    <div style={{padding: '2rem', color: "#424436"}}>
+      <h2 style={{paddingBottom: '2rem'}}>All products</h2>
       {/* Передаем handleFilterChange в компонент ProductsFilter */}
       <ProductsFilter onFilterChange={handleFilterChange} />
       <div id="products-section">

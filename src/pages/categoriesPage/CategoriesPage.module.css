@@ -1,5 +1,5 @@
-.cardsContainer > :first-child > :first-child {
+/* .cardsContainer > :first-child > :first-child {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-}
+} */

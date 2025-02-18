@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import s from "./CategoriesContainer.module.css";
 import CategoryCard from "../../categoryCard/CategoryCard";
 import { back } from "../../../constants";
+import { Link } from "react-router-dom";
 
 export default function CategoriesContainer({ amount }) {
   const [category, setCategory] = useState([]);
@@ -21,7 +22,9 @@ export default function CategoriesContainer({ amount }) {
     <div className={s.mainContainer}>
       <div className={s.categoriesContainer}>
         {category.map((el) => (
-          <CategoryCard key={el.id} {...el} />
+          <Link key={el.id} to={`/productsByCategory/${el.id}?title=${el.title}`}>
+          <CategoryCard {...el} />
+        </Link>
         ))}
       </div>
     </div>

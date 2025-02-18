@@ -3,8 +3,11 @@ import s from "./ProductCard.module.css";
 import { back } from "../../constants";
 import basketCardEmpty from "../../badges/basketCardEmpty.svg";
 import heart from "../../badges/Vector.svg"
+import ProductBreadcrumbs from "../productBreadcrumbs/Breadcrumbs";
+
 
 export default function ProductCard({ image, title, discont_price, price }) {
+
   // Если имеется скидка, высчитывается её процент
   const discountPercentage =
     price && discont_price
@@ -12,7 +15,7 @@ export default function ProductCard({ image, title, discont_price, price }) {
       : null;
   return (
     <div className={s.cardsContainer}>
-      <img src={`${back}${image}`} alt={title}></img>
+       <img src={`${back}${image}`} alt={title}></img>
       {/* <div className={s.divideLine}></div> */}
       <p className={s.itemName}>{title}</p>
       {/* Если есть скидка показываем две цены */}

@@ -4,7 +4,10 @@ import ProductList from "../components/productList/ProductList";
 import ProductsFilter from "../components/productsFilter/ProductsFilter";
 import { back } from "../constants";
 
+
+
 export default function AllProductsPage() {
+
   const [products, setProducts] = useState([]); // Все продукты
   const [filteredProducts, setFilteredProducts] = useState([]); // Отфильтрованные продукты
   const [filters, setFilters] = useState({
@@ -25,6 +28,8 @@ export default function AllProductsPage() {
       })
       .catch((error) => alert("Ошибка:", error));
   }, []);
+
+
 
   // Применение фильтров и сортировки при изменении фильтров или продуктов
   useEffect(() => {
@@ -86,9 +91,11 @@ export default function AllProductsPage() {
   };
 
 
+
   
   return (
     <div style={{padding: '2rem', color: '#424436'}}>
+    
       <h2 style={{paddingBottom: '2rem'}}>All products</h2>
       <ProductsFilter onFilterChange={handleFilterChange} />
       <div id="products-section">

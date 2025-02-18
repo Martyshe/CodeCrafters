@@ -1,0 +1,50 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    padding: 8px 16px; 
+    font-size: 16px;
+    font-weight: 500;
+    color: #8B8B8B; 
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: #8B8B8B; 
+    border: 1px solid #DDDDDD; 
+    padding: 8px 16px; 
+    border-radius: 6px; 
+    transition: background-color 0.3s ease-in-out; /* Плавное появление фона */
+}
+
+.link:hover {
+    background-color: #e7e7e7; 
+}
+
+.current {
+    color: #424436;
+    font-weight: 500; 
+    padding: 8px 16px; 
+    border: 1px solid #DDDDDD;
+    border-radius: 6px;
+    cursor: default;
+    font-size: 16px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0; 
+    font-size: 18px; 
+    color: #8B8B8B; 
+}
+
+@media (max-width: 768px) {
+    .breadcrumbs {
+        display: none; 
+    }
+}
+

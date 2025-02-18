@@ -1,6 +1,7 @@
 import React from "react";
 import CategoriesContainer from "../../components/main/categories/CategoriesContainer";
 import s from './CategoriesPage.module.css'
+
 export default function CategoriesPage() {
   const style = {
     maxWidth: "100%",
@@ -10,6 +11,7 @@ export default function CategoriesPage() {
   };
   return (
     <div>
+      
       <h2 style={style}>Categories</h2>
       <div className={s.cardsContainer}>
         <CategoriesContainer amount={5} />

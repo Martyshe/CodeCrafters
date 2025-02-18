@@ -1,6 +1,7 @@
 
 .filterContainer {
     padding-bottom: 2.5rem;
+    padding-left: 1.25rem;
 }
 
 .filterContainerProducts {
@@ -10,13 +11,6 @@
     align-items: center; 
     gap: 1rem; 
 }
-/* 
-.title {
-    font-size: 64px;
-    font-weight: 700;
-    text-align: left;
-    padding-bottom: 2.5rem;
-} */
 
 .filterGroup {
     display: flex;
@@ -64,7 +58,7 @@
     border: 1px solid #DDDDDD;
     border-radius: 4px; 
     appearance: none; 
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>'); /* Кастомная стрелка */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>');
     background-repeat: no-repeat;
     background-position: right 8px center;
     background-size: 20px; 
@@ -76,7 +70,8 @@ span {
 } 
 
 
-@media (max-width: 1000px) and (min-width: 769px) {
+
+/* @media (max-width: 1000px) and (min-width: 769px) {
     .filterContainerProducts {
         flex-direction: row; 
         flex-wrap: nowrap;
@@ -92,20 +87,20 @@ span {
     }
 
     .input {
-        width: 90px; /* Уменьшаем ширину input */
-        padding: 6px 0 6px 12px; /* Уменьшаем padding */
+        width: 90px; 
+        padding: 6px 0 6px 12px; 
     }
 
     .select {
-        width: 160px; /* Уменьшаем ширину select */
-        padding: 6px 6px 6px 12px; /* Уменьшаем padding */
-        font-size: 14px; /* Уменьшаем размер шрифта */
-        background-size: 16px; /* Уменьшаем размер кастомной стрелки */
+        width: 160px; 
+        padding: 6px 6px 6px 12px; 
+        font-size: 14px; 
+        background-size: 16px; 
     }
 
     .inputDiscounted {
-        width: 30px; /* Уменьшаем ширину checkbox */
-        height: 30px; /* Уменьшаем высоту checkbox */
+        width: 30px; 
+        height: 30px; 
     }
 }
 
@@ -165,4 +160,4 @@ span {
         margin-left: 0;
         margin-right: 0;
     }
-}
+} */

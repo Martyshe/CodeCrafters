@@ -14,45 +14,50 @@ const Breadcrumbs = () => {
   ) {
     fixedCrumbs.push({ name: "Main Page", path: "/" });
   }
-    // Добавляем "All Products" или "All Sale" в зависимости от пути
-    if (location.pathname.startsWith("/all-products")) {
-        fixedCrumbs.push({ name: "All Products", path: "/all-products" });
-      } else if (location.pathname.startsWith("/all-sale")) {
-        fixedCrumbs.push({ name: "All Sale", path: "/all-sale" });
-      } else if (location.pathname.startsWith("/categories")) {
-        fixedCrumbs.push({ name: "Categories", path: "/categories" });
-      } else if (location.pathname.startsWith("/categories/tools-and-equipment")) {
-        fixedCrumbs.push({ name: "Tools and Equipment", path: "/categories/tools-and-equipment" });
-      }
-      return (
-        <div className={styles.breadcrumbs}>
-          {fixedCrumbs.map((crumb, index) => {
-            const isLastFixedCrumb = index === fixedCrumbs.length - 1; // Проверяем, является ли текущий элемент последним в фиксированной части
-            return (
-              <React.Fragment key={crumb.path}>
-                {isLastFixedCrumb ? (
-                  <span className={styles.current}>{crumb.name}</span>
-                ) : (
-                  <Link to={crumb.path} className={styles.link}>
-                    {crumb.name}
-                  </Link>
-                )}
-                {index < fixedCrumbs.length - 1 && <span className={styles.separator}>{"—"}</span>}
-              </React.Fragment>
-            );
-          })}
+  // дополнительные подкатегории 
+  if (pathnames.length > 2) {
+    const subCategoryName = pathnames[2].replace(/-/g, " "); // Убирала дефисы для подкатегорий
+    fixedCrumbs.push({ name: subCategoryName, path: `/categories/${pathnames[1]}/${pathnames[2]}` });
+  }
 
-      {/* Динамическая часть пути */}
-      {pathnames.slice(fixedCrumbs.length).map((name, index) => {
+  // Добавляем "All Products" или "All Sale" в зависимости от пути
+  if (location.pathname.startsWith("/all-products")) {
+    fixedCrumbs.push({ name: "All Products", path: "/all-products" });
+  } else if (location.pathname.startsWith("/all-sale")) {
+    fixedCrumbs.push({ name: "All Sale", path: "/all-sale" });
+  } else if (location.pathname.startsWith("/categories")) {
+    fixedCrumbs.push({ name: "Categories", path: "/categories" });
+  } else if (location.pathname.startsWith("/categories/tools-and-equipment")) {
+    fixedCrumbs.push({ name: "Tools and Equipment", path: "/categories/tools-and-equipment" });
+  }
+  return (
+    <div className={styles.breadcrumbs}>
+      {fixedCrumbs.map((crumb, index) => {
+        const isLastFixedCrumb = index === fixedCrumbs.length - 1; // Проверяем, является ли текущий элемент последним в фиксированной части
+        return (
+          <React.Fragment key={crumb.path}>
+            {isLastFixedCrumb ? (
+              <span className={styles.current}>{crumb.name}</span>
+            ) : (
+              <Link to={crumb.path} className={styles.link}>
+                {crumb.name}
+              </Link>
+            )}
+            {index < fixedCrumbs.length - 1 && <span className={styles.separator}>{"—"}</span>}
+          </React.Fragment>
+        );
+      })}
+ {/* Динамическая часть пути */}
+ {pathnames.slice(fixedCrumbs.length).map((name, index) => {
         const routeTo = `/${pathnames.slice(0, fixedCrumbs.length + index + 1).join("/")}`; // Формируем путь
         const isLast = index === pathnames.slice(fixedCrumbs.length).length - 1; // Проверяем, является ли текущий элемент последним
         return isLast ? (
           <span key={name} className={styles.current}>
-            {"—"} {name}
+             {name}
           </span>
         ) : (
           <Link key={name} to={routeTo} className={styles.link}>
-            {"—"} {name}
+          {name}
           </Link>
         );
       })}

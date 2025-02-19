@@ -41,14 +41,25 @@ export const DiscountForm = () => {
                             className={styles.input}
                             type='tel'
                             placeholder='Phone number'
-                            {...register('phone', {required: 'Phone is required'})}
+                            {...register('phone', 
+                                {required: 'Phone is required',
+                                    pattern: {
+                                        value: /^\+?[0-9]{10,15}$/, // Пример: +1234567890 или 1234567890
+                                        message: 'Please enter a valid phone number'}
+                                })}
                             />
                             {errors.phone && <p className={styles.error}>{errors.phone.message}</p>}
                             <input
                             className={styles.input}
                             type='email'
                             placeholder='Email'
-                            {...register('email', {required: 'Email is required'})}
+                            {...register('email', 
+                                {required: 'Email is required',
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, // Проверка формата email
+                                        message: 'Please enter a valid email address',
+                                      },
+                                })}
                             />
                             {errors.email && <p className={styles.error}>{errors.email.message}</p>}
                         <button type='submit' className={styles.button}>Get a discount</button>                        
@@ -58,4 +69,3 @@ export const DiscountForm = () => {
         </div>
     )
 }
-

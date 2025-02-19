@@ -26,7 +26,7 @@ const ProductsFilter = ({ onFilterChange }) => {
     // Прокрутка к началу списка товаров
     const productsSection = document.getElementById("products-section");
     if (productsSection) {
-      productsSection.scrollIntoView({ behavior: "smooth" });
+      productsSection.scroll({ behavior: "smooth" });
     }
   }, [priceFrom, priceTo, discounted, sortOrder]);
 

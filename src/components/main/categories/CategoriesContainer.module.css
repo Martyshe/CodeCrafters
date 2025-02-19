@@ -1,12 +1,51 @@
-
-
-
-
-
-
-
-
+/* CategoriesContainer.module.css */
 .mainContainer {
+  max-width: 100%;
+  padding: 2rem;
+  color: #424436;
+}
+
+.categoriesContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding-bottom: 3rem;
+}
+
+/* Убираем подчеркивание у всех ссылок внутри контейнера */
+.categoriesContainer a {
+  text-decoration: none;
+  color: inherit; /* Наследуем цвет текста от родителя */
+}
+
+/* Остальные стили остаются без изменений */
+@media (min-width: 1000px) {
+  .categoriesContainer {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .categoriesContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .categoriesContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Остальные существующие стили... */
+
+
+
+
+
+
+
+/* .mainContainer {
   max-width: 100%;
   padding: 2rem;
   color: #424436;
@@ -86,4 +125,4 @@ button {
     grid-template-columns: 1fr;
   }
   
-}
+} */

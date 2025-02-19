@@ -4,9 +4,11 @@ import HomePage from '../pages/HomePage';
 import AllSalesPage from '../pages/AllSalesPage';
 import CategoriesPage from '../pages/categoriesPage/CategoriesPage';
 import ProductsByCategory from '../pages/ProductsByCategory';
+import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 
 const AppRouter = () => (
     <Router>
+        <Breadcrumbs />
         <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/categories" element={<CategoriesPage />} />

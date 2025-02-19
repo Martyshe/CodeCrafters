@@ -97,22 +97,22 @@ const NavMenu = () => {
         <nav className={styles.dropdownNav}>
           <ul className={styles.dropdownNavList}>
             <li>
-              <a href="#" className={styles.navLink}>
+            <a href="/" className={styles.navLink}>
                 Main Page
               </a>
             </li>
             <li>
-              <a href="#" className={styles.navLink}>
+              <a href="/categories" className={styles.navLink}>
                 Categories
               </a>
             </li>
             <li>
-              <a href="#" className={styles.navLink}>
+              <a href="/all-products" className={styles.navLink}>
                 All products
               </a>
             </li>
             <li>
-              <a href="#" className={styles.navLink}>
+              <a href="/all-sales" className={styles.navLink}>
                 All sales
               </a>
             </li>

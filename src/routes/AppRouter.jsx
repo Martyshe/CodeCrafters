@@ -5,6 +5,7 @@ import AllSalesPage from '../pages/AllSalesPage';
 import CategoriesPage from '../pages/categoriesPage/CategoriesPage';
 import ProductsByCategory from '../pages/ProductsByCategory';
 import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
+import Cart from '../components/cart/Cart';
 
 const AppRouter = () => (
     <Router>
@@ -15,6 +16,7 @@ const AppRouter = () => (
             <Route path="/all-products" element={<AllProductsPage />} />
             <Route path="/all-sales" element={<AllSalesPage />} />
             <Route path="/productsByCategory/:categoryId" element={<ProductsByCategory />} />
+            <Route path="/cart" element={<Cart />} />
         </Routes>
     </Router>
 );

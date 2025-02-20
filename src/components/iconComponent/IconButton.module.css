@@ -1,0 +1,23 @@
+.iconButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s ease; 
+}
+.iconImage {
+    width: 48px;
+    height: 48px;
+    transition: filter 0.2s ease; 
+}
+/* Черный цвет */
+.iconButton:hover .iconImage {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(9%) saturate(1702%) hue-rotate(34deg) brightness(93%) contrast(88%);
+}
+/* Зеленый цвет */
+.iconButton.active .iconImage {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(23%) saturate(700%) hue-rotate(35deg) brightness(90%) contrast(85%);
+}
+/* При наведении на активную кнопку оставляем зеленый цвет #92A134 */
+.iconButton.active:hover .iconImage {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(23%) saturate(683%) hue-rotate(35deg) brightness(90%) contrast(85%);
+}

@@ -4,7 +4,6 @@
   background-color: #ffffff;
   border: 1px #dddddd solid;
 }
-
 .cardsContainer > img {
   object-fit: cover;
   width: 100%;
@@ -14,12 +13,10 @@
   border-top-right-radius: 10px;
   background-color: #fffff1;
 }
-
 .divideLine {
   height: 0.5px;
   border: 0.5px #dddddd solid;
 }
-
 .itemName {
   white-space: nowrap; /* Запрещает перенос на новую строку */
   overflow: hidden; /* Обрезает текст, выходящий за границы */
@@ -29,13 +26,11 @@
   font-size: 1.25rem;
   font-weight: 500;
 }
-
 .actualPrice {
   padding: 1rem 2rem;
   font-size: 2.5rem;
   font-weight: 600;
 }
-
 .oldPrice {
   padding-left: 1rem;
   font-size: 1.25rem;
@@ -43,7 +38,6 @@
   text-decoration-line: line-through;
   color: #8b8b8b;
 }
-
 .discountBadge {
   position: absolute;
   top: 1rem;
@@ -55,7 +49,6 @@
   border-radius: 0.3rem;
   max-width: 4rem;
 }
-
 .badgesContainer {
   position: absolute;
   top: 1rem;
@@ -64,10 +57,12 @@
   display: flex;
   flex-direction: column;
 }
-
 .badgesContainer > img {
   width: 3rem;
   height: 3rem;
 }
-
-
+.product-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}

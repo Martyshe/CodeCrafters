@@ -1,19 +1,20 @@
-// /**
-//  * Принимает проп onFilterChange, который вызывается при изменении фильтров.
-//  * priceFrom и priceTo – для хранения минимальной и максимальной цены.
-//  * discounted – флаг, включены ли скидки.
-//  * sortOrder – текущее состояние сортировки.
-//  * Создает два поля ввода для цен (от и до).
-//  * Использует styles.filterGroup для группировки элементов.
-//  * Создает чекбокс "Discounted items".
-//  * Позволяет выбирать способ сортировки.
-//  * 
-//  */
+// // /**
+// //  * Принимает проп onFilterChange, который вызывается при изменении фильтров.
+// //  * priceFrom и priceTo – для хранения минимальной и максимальной цены.
+// //  * discounted – флаг, включены ли скидки.
+// //  * sortOrder – текущее состояние сортировки.
+// //  * Создает два поля ввода для цен (от и до).
+// //  * Использует styles.filterGroup для группировки элементов.
+// //  * Создает чекбокс "Discounted items".
+// //  * Позволяет выбирать способ сортировки.
+// //  * 
+// //  */
+
 
 import { useState, useEffect } from "react";
 import styles from "./ProductsFilter.module.css";
 
-const ProductsFilter = ({ onFilterChange }) => {
+const ProductsFilter = ({ onFilterChange, hideDiscountedCheckbox }) => {
   const [priceFrom, setPriceFrom] = useState("");
   const [priceTo, setPriceTo] = useState("");
   const [discounted, setDiscounted] = useState(false);
@@ -51,15 +52,18 @@ const ProductsFilter = ({ onFilterChange }) => {
           />
         </div>
 
-        <div className={styles.checkboxContainer}>
-          <span>Discounted items</span>
-          <input
-            type="checkbox"
-            checked={discounted}
-            onChange={() => setDiscounted(!discounted)}
-            className={styles.inputDiscounted}
-          />
-        </div>
+        {/* Скрываем чекбокс "Discounted items", если hideDiscountedCheckbox === true */}
+        {!hideDiscountedCheckbox && (
+          <div className={styles.checkboxContainer}>
+            <span>Discounted items</span>
+            <input
+              type="checkbox"
+              checked={discounted}
+              onChange={() => setDiscounted(!discounted)}
+              className={styles.inputDiscounted}
+            />
+          </div>
+        )}
 
         <div className={styles.filterGroup}>
           <span>Sorted</span>

@@ -3,8 +3,10 @@ import ProductCard from "../../productCard/ProductCard";
 import s from "./SaleSection.module.css";
 import { back } from "../../../constants";
 
-export default function SaleSection({ amount }) {
+export default function SaleSection({ amount ,products = []}) {
   const [discountItem, setDiscountItem] = useState([]);
+
+  const displayedProducts = Array.isArray(products) ? products.slice(0, amount) : [];
 
   useEffect(() => {
     fetch(`${back}/products/all`)
@@ -31,6 +33,15 @@ export default function SaleSection({ amount }) {
           <ProductCard key={el.id} {...el} />
         ))}
       </div>
+         <div className={s.cardsContainer}>
+         {displayedProducts.map((el) => (
+          <ProductCard key={el.id} {...el} />
+        ))}
+      </div>
     </div>
   );
 }
+
+
+
+

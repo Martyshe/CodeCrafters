@@ -50,7 +50,7 @@ export default function ProductsByCategory() {
       <ProductsFilter onFilterChange={handleFilterChange} />
       <div id="products-section">
         {/* Отображаем отфильтрованные продукты */}
-        <ProductList products={products} />
+        <ProductList products={filteredProducts} />
       </div>
     </div>
   );

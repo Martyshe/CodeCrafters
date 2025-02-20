@@ -70,4 +70,8 @@
   height: 3rem;
 }
 
-
+.product-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}

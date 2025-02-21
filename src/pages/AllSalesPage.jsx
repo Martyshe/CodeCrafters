@@ -44,7 +44,7 @@ export default function AllSalesPage() {
   const style = {
     maxWidth: "100%",
     padding: "2rem",
-    paddingBottom: "0",
+    paddingLeft:'2.25rem',
     color: "#424436",
   };
 
@@ -58,9 +58,12 @@ export default function AllSalesPage() {
 
   return (
     <div>
-      <h2 style={style}>All sales</h2>
+      <h2 style={style}>Discounted items</h2>
       {/* Передаем handleFilterChange в компонент ProductsFilter и скрываем кнопку "Discounted items" */}
-      <ProductsFilter onFilterChange={handleFilterChange} hideDiscountedCheckbox />
+      <ProductsFilter onFilterChange={handleFilterChange} hideDiscountedCheckbox    filterStyle={{
+    paddingLeft: "2.25rem",
+    borderRadius: "8px",
+  }}/>
       <SaleSection products={discountedProducts} amount={discountedProducts.length} />
     </div>
   );

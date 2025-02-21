@@ -14,7 +14,7 @@
 import { useState, useEffect } from "react";
 import styles from "./ProductsFilter.module.css";
 
-const ProductsFilter = ({ onFilterChange, hideDiscountedCheckbox }) => {
+const ProductsFilter = ({ onFilterChange, hideDiscountedCheckbox,filterStyle }) => {
   const [priceFrom, setPriceFrom] = useState("");
   const [priceTo, setPriceTo] = useState("");
   const [discounted, setDiscounted] = useState(false);
@@ -32,7 +32,7 @@ const ProductsFilter = ({ onFilterChange, hideDiscountedCheckbox }) => {
   }, [priceFrom, priceTo, discounted, sortOrder]);
 
   return (
-    <div className={styles.filterContainer}>
+    <div className={styles.filterContainer} style={filterStyle}>
       <div className={styles.filterContainerProducts}>
         <div className={styles.filterGroup}>
           <span>Price</span>

@@ -4,10 +4,31 @@ import { back } from "../../constants";
 import cartIcon from "../../badges/basketCardEmpty.svg";
 import heartIcon from "../../badges/Vector.svg";
 import IconButton from "../iconComponent/IconButton";
-export default function ProductCard({ image, title, discont_price, price }) {
-  const [isInCart, setIsInCart] = useState(false);
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
+
+
+export default function ProductCard({ id, image, title, discont_price, price }) {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(state => state.cart.items);
+  
+  // Проверяем есть ли товар в корзине
+  const isInCart = cartItems.some(item => item.id === id);
+
+  const handleCartClick = () => {
+    dispatch(addToCart({
+      id,
+      title,
+      image,
+      price: discont_price || price,
+      originalPrice: price,
+    }));
+  };
+
+
+  // const [isInCart, setIsInCart] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  const handleCartClick = () => setIsInCart(!isInCart);
+  // const handleCartClick = () => setIsInCart(!isInCart);
   const handleFavoriteClick = () => setIsFavorite(!isFavorite);
   const discountPercentage =
     price && discont_price

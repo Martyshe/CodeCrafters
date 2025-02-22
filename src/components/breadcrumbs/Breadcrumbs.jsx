@@ -1,67 +1,122 @@
+// import React from "react";
+// import { Link, useLocation } from "react-router-dom";
+// import styles from "./Breadcrumbs.module.css";
+
+// const Breadcrumbs = () => {
+//   const location = useLocation();
+//   const pathnames = location.pathname.split("/").filter((x) => x); // Разбиваем путь
+
+//   if (!pathnames.length ) {return null}; // Если мы на главной, не рендерим хлебные крошки
+
+//     // ✅ Декодируем title из URL
+//     const params = new URLSearchParams(location.search);
+//     let decodedTitle = params.get("title") ? decodeURIComponent(params.get("title")) : null;
+  
+//     // ✅ Берём только первое слово из title, если оно есть
+//     if (decodedTitle) {
+//       decodedTitle = decodedTitle.split(" ")[0];
+//     }
+
+
+//   let breadcrumbs = [{ name: "Main Page", path: "/" }]; // Всегда добавляем "Main Page"
+
+//   // Динамически добавляем хлебные крошки
+//   let path = "";
+//   pathnames.forEach((name, index) => {
+//     path += `/${name}`;
+//     const formattedName = decodeURIComponent(name)
+//       .replace(/-/g, " ") // Убираем дефисы
+//       .toLowerCase() // Преобразуем всё в нижний регистр
+//       .replace(/^./, (char) => char.toUpperCase()); // Делаем заглавной только первую букву строки
+
+//       if (decodedTitle && index === pathnames.length - 1) {
+//         formattedName = decodedTitle;
+//       }
+
+//     breadcrumbs.push({ name: formattedName, path });
+//   });
+
+//   return (
+//     <div className={styles.breadcrumbs}>
+//       {breadcrumbs.map((crumb, index) => {
+//         const isLast = index === breadcrumbs.length - 1; // Последняя крошка
+//         return (
+//           <React.Fragment key={crumb.path}>
+//             {isLast ? (
+//               <span className={styles.current}>{crumb.name}</span>
+//             ) : (
+//               <Link to={crumb.path} className={styles.link}>
+//                 {crumb.name}
+//               </Link>
+//             )}
+//             {index < breadcrumbs.length - 1 && (
+//               <div className={styles.separator}>—</div>
+//             )}
+//           </React.Fragment>
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
+// export default Breadcrumbs;
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Breadcrumbs.module.css";
+
 const Breadcrumbs = () => {
-  const location = useLocation(); // Получаем текущий путь
-  const pathnames = location.pathname.split("/").filter((x) => x); // Разбиваем путь на части
-  let fixedCrumbs = [];
-  // Показываем "Main Page" только на определённых страницах
-  if (
-    location.pathname.startsWith("/all-products") ||
-    location.pathname.startsWith("/all-sale") ||
-    location.pathname.startsWith("/categories") ||
-    location.pathname.startsWith("/tools-and-equipment")
-  ) {
-    fixedCrumbs.push({ name: "Main Page", path: "/" });
-  }
-  // дополнительные подкатегории 
-  if (pathnames.length > 2) {
-    const subCategoryName = pathnames[2].replace(/-/g, " "); // Убирала дефисы для подкатегорий
-    fixedCrumbs.push({ name: subCategoryName, path: `/categories/${pathnames[1]}/${pathnames[2]}` });
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x); // Разбиваем путь
+
+  if (!pathnames.length) return null; // Если мы на главной, не рендерим хлебные крошки
+
+  // ✅ Декодируем title из URL
+  const params = new URLSearchParams(location.search);
+  let decodedTitle = params.get("title") ? decodeURIComponent(params.get("title")) : null;
+
+  // ✅ Берём только первое слово из title, если оно есть
+  if (decodedTitle) {
+    decodedTitle = decodedTitle.split(" ")[0];
   }
 
-  // Добавляем "All Products" или "All Sale" в зависимости от пути
-  if (location.pathname.startsWith("/all-products")) {
-    fixedCrumbs.push({ name: "All Products", path: "/all-products" });
-  } else if (location.pathname.startsWith("/all-sale")) {
-    fixedCrumbs.push({ name: "All Sale", path: "/all-sale" });
-  } else if (location.pathname.startsWith("/categories")) {
-    fixedCrumbs.push({ name: "Categories", path: "/categories" });
-  } else if (location.pathname.startsWith("/categories/tools-and-equipment")) {
-    fixedCrumbs.push({ name: "Tools and Equipment", path: "/categories/tools-and-equipment" });
-  }
+  let path = "";
+  const breadcrumbs = [{ name: "Main Page", path: "/" }]; // Всегда добавляем "Main Page"
+
+  // Динамически создаем хлебные крошки
+  const newCrumbs = pathnames.map((name, index) => {
+    path += `/${name}`;
+    let formattedName = decodeURIComponent(name)
+      .replace(/-/g, " ") // Убираем дефисы
+      .toLowerCase() // Преобразуем всё в нижний регистр
+      .replace(/^./, (char) => char.toUpperCase()); // Делаем заглавной только первую букву строки
+
+    if (decodedTitle && index === pathnames.length - 1) {
+      formattedName = decodedTitle;
+    }
+
+    return { name: formattedName, path };
+  });
+
   return (
     <div className={styles.breadcrumbs}>
-      {fixedCrumbs.map((crumb, index) => {
-        const isLastFixedCrumb = index === fixedCrumbs.length - 1; // Проверяем, является ли текущий элемент последним в фиксированной части
+      {[...breadcrumbs, ...newCrumbs].map((crumb, index, arr) => {
+        const isLast = index === arr.length - 1; // Последняя крошка
         return (
           <React.Fragment key={crumb.path}>
-            {isLastFixedCrumb ? (
+            {isLast ? (
               <span className={styles.current}>{crumb.name}</span>
             ) : (
               <Link to={crumb.path} className={styles.link}>
                 {crumb.name}
               </Link>
             )}
-            {index < fixedCrumbs.length - 1 && <span className={styles.separator}>{"—"}</span>}
+            {index < arr.length - 1 && <div className={styles.separator}>—</div>}
           </React.Fragment>
-        );
-      })}
- {/* Динамическая часть пути */}
- {pathnames.slice(fixedCrumbs.length).map((name, index) => {
-        const routeTo = `/${pathnames.slice(0, fixedCrumbs.length + index + 1).join("/")}`; // Формируем путь
-        const isLast = index === pathnames.slice(fixedCrumbs.length).length - 1; // Проверяем, является ли текущий элемент последним
-        return isLast ? (
-          <span key={name} className={styles.current}>
-             {name}
-          </span>
-        ) : (
-          <Link key={name} to={routeTo} className={styles.link}>
-          {name}
-          </Link>
         );
       })}
     </div>
   );
 };
+
 export default Breadcrumbs;

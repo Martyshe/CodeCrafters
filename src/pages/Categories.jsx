@@ -64,7 +64,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import { useProductFilter } from '../components/productsFilter/useProductFilter';
 import ProductsFilter from '../components/productsFilter/ProductsFilter';
 
-export default function ProductsByCategory() {
+export default function Categories() {
   const { categoryId } = useParams();
   const location = useLocation();
   const numericCat = parseInt(categoryId, 10);

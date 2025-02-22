@@ -292,7 +292,7 @@ button {
     cursor: pointer;
     color: #424436;
 }
-
+/* just comment */
 .removeButton:hover {
     color: #c9302c;
 }

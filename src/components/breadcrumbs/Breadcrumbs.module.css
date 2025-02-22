@@ -15,7 +15,7 @@
     border: 1px solid #DDDDDD; 
     padding: 8px 16px; 
     border-radius: 6px; 
-    transition: background-color 0.3s ease-in-out; /* Плавное появление фона */
+    transition: background-color 0.3s ease-in-out; 
 }
 .link:hover {
     background-color: #e7e7e7; 

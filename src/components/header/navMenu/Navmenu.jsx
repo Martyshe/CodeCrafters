@@ -59,7 +59,7 @@ const NavMenu = () => {
             <img src={heartIcon} alt="Сердце" />
           </button>
           <button className={styles.icon}>
-            <img src={bagIcon} alt="Сумка" />
+            <a href="/cart"><img src={bagIcon} alt="Сумка" /></a>
           </button>
         </div>
 

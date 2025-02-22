@@ -1,32 +1,35 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { setProducts } from '../redux/productsSlice';
+import ProductList from '../components/productList/ProductList';
+import { back } from '../constants';
 
-import React from "react";
-import ProductList from "../components/productList/ProductList";
-import ProductsFilter from "../components/productsFilter/ProductsFilter";
-import { useProductFilter } from "../components/productsFilter/useProductFilter";
+const AllProductsPage = () => {
+  const dispatch = useDispatch();
+  const products = useSelector(state => state.products.items);
 
-export default function AllProductsPage() {
+  useEffect(() => {
+    if (products.length === 0) {
+      // Если список продуктов пуст, делаем запрос и загружаем их
+      fetchProducts();
+    }
+  }, [products]);
 
-  const initialFilters = {
-    priceFrom: "",
-    priceTo: "",
-    discounted: false,
-    sortOrder: "by default",
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(`${back}/products/all`); // или ваш API
+      const data = await response.json();
+      dispatch(setProducts(data));
+    } catch (error) {
+      console.error("Ошибка загрузки продуктов:", error);
+    }
   };
 
-
-  const { filteredProducts, handleFilterChange } = useProductFilter(initialFilters);
-
   return (
-    <div style={{padding: '2rem', color: "#424436"}}>
-      <h2 style={{paddingBottom: '2rem'}}>All products</h2>
-
-      <ProductsFilter onFilterChange={handleFilterChange} />
-      <div id="products-section">
-
-        <ProductList products={filteredProducts} />
-      </div>
+    <div>
+      {/* Отображаем список продуктов */}
+      <ProductList products={products} />
     </div>
   );
-}
-
-
+};
+export default AllProductsPage;

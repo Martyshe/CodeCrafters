@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './slice';
+import cartReducer, { cartMiddleware } from './cartSlice';
+import productsReducer from './productsSlice'; // Подключение редьюсера продуктов
 
-export const store = configureStore({
+export default configureStore({
   reducer: {
-    counter: counterReducer,
+    products: productsReducer, // Добавление редьюсера продуктов
+    cart: cartReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(cartMiddleware),
 });

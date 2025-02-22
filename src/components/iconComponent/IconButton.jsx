@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./IconButton.module.css";
-
 const IconButton = ({ iconSrc, altText, onClick, isActive }) => {
   return (
     <button 
@@ -11,5 +10,4 @@ const IconButton = ({ iconSrc, altText, onClick, isActive }) => {
     </button>
   );
 };
-
 export default IconButton;

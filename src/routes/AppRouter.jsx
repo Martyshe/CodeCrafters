@@ -7,6 +7,7 @@ import Breadcrumbs from '../components/breadcrumbs/Breadcrumbs';
 import Cart from '../components/cart/Cart';
 import ProductDetails from '../components/productDetails/ProductDetails';
 import Categories from '../pages/Categories';
+import NotFound from '../components/404/NotFound';
 
 const AppRouter = () => (
     <Router>
@@ -19,6 +20,7 @@ const AppRouter = () => (
             <Route path="/categories/:categoryId" element={<Categories />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     </Router>
 );

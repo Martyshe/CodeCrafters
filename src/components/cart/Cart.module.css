@@ -84,7 +84,6 @@
   border: 1px solid gray;
   background: transparent;
   color: gray;
-  /* font-size: 1.5rem; */
   cursor: pointer;
   border-radius: 0.3rem;
   display: flex;
@@ -92,11 +91,12 @@
   align-items: center;
 }
 
-.quantityControls > span {
+.quantityControls > .quantity {
   font-size: 1.5rem;
   font-weight: 500;
   color: #424436;
-  padding: 0.25rem 2rem;
+  padding: 0.27rem 2rem;
+  margin: -4px;
   border-top: 1px solid gray;
   border-bottom: 1px solid gray;
 }

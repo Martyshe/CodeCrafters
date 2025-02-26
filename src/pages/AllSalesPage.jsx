@@ -40,6 +40,7 @@ export default function AllSalesPage() {
   const discountedProducts = filteredProducts.filter(
     (product) => product.discont_price !== null
   );
+  
 
   const style = {
     maxWidth: "100%",

@@ -96,6 +96,10 @@ a.phoneLink {
 }
 
 @media (max-width: 480px) {
+  .contactContainer{
+    padding: 32px 20px 47px 20px;
+  }
+
   .contactTitle {
     font-size: 3rem;
   }
@@ -127,6 +131,10 @@ a.phoneLink {
 }
 
 @media (max-width: 360px) {
+  .contactContainer{
+    padding: 32px 20px 47px 20px;
+  }
+  
   .contactTitle {
     font-size: 2.5rem;
   }

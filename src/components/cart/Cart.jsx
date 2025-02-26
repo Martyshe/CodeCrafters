@@ -56,7 +56,8 @@ export default function Cart() {
               <div key={item.id} className={styles.cartItem}>
                 <img src={`${back}${item.image}`} alt={item.title} />
                 <div className={styles.itemDetails}>
-                  <h3>{item.title}</h3>
+                <h3>{item.title.length > 20 ? `${item.title.slice(0, 20)}...` : item.title}</h3>
+
                   <div className={styles.controlsPriceContainer}>
                     <div className={styles.quantityControls}>
                       <button
@@ -64,7 +65,7 @@ export default function Cart() {
                       >
                         -
                       </button>
-                      <span className={styles.quantity}>{item.quantity}</span>
+                      <span className={styles.quantities}>{item.quantity}</span>
                       <button
                         onClick={() => dispatch(increaseQuantity(item.id))}
                       >
@@ -95,9 +96,15 @@ export default function Cart() {
           <div className={styles.formContainer}>
             <h2 className={styles.title}>Order details</h2>
             <p>{totalItems} items</p>
-            <p>
-              Total: <span>${totalPrice.toFixed(2)}</span>
-            </p>
+            <div className={styles.priceWrapper}>
+              <p>
+                Total:{" "}
+              </p>
+              <span className={styles.totalPrise}>
+                  ${totalPrice.toFixed(2)}
+                </span>
+            </div>
+
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
               <input
                 className={styles.input}

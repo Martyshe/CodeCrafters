@@ -1,7 +1,6 @@
 
 .filterContainer {
     padding-bottom: 2.5rem;
-    /* padding-left: 1.25rem; */
 }
 
 .filterContainerProducts {
@@ -73,7 +72,7 @@ span {
 @media (max-width: 1000px) {
     .filterContainerProducts {
         flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
-        gap: 0.5rem; /* Уменьшаем отступы между элементами */
+        gap: 2.25rem; /* Уменьшаем отступы между элементами */
     }
 
     .filterContainer{
@@ -81,15 +80,15 @@ span {
     }
 
     .input {
-        width: 90px; /* Уменьшаем ширину input */
+        width: 90px; 
     }
 
     .select {
-        width: 150px; /* Уменьшаем ширину select */
+        width: 150px;
     }
 
     .inputTo {
-        margin-right: 1rem; /* Уменьшаем отступ справа */
+        margin-right: 1rem; 
     }
 
 
@@ -99,33 +98,18 @@ span {
     }
 }
 
-/* Медиа-запрос для экранов с шириной до 768px */
 @media (max-width: 768px) {
     .filterContainerProducts {
-        flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
-        gap: 0.5rem; /* Уменьшаем отступы между элементами */
+        flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+        gap: 2rem; /* Уменьшаем отступы между элементами */
     }
-
-    .filterContainer{
-        padding-left: 0;
-    }
-
+    
+    
     .input {
-        width: 90px; /* Уменьшаем ширину input */
+        width: 112px; 
+        height: 36px;
     }
-
-    .select {
-        width: 150px; 
-    }
-
-    .inputTo {
-        margin-right: 1rem; /* Уменьшаем отступ справа */
-    }
-
-    .inputDiscounted {
-        margin-left: 0.5rem; /* Уменьшаем отступ слева */
-        margin-right: 1rem; /* Уменьшаем отступ справа */
-    }
+    
 }
 
 /* Медиа-запрос для экранов с шириной до 480px */
@@ -134,20 +118,7 @@ span {
         flex-wrap: wrap; /* Разрешаем перенос на новую строку */
     }
 
-    .filterGroup {
-        padding-bottom: 16px;
-    }
-
-    .filterContainer{
-        padding-left: 0;
-    }
-
-    .checkboxContainer {
-        padding-bottom: 10px;
-    }
-
     .select {
-        margin-top: 0.5rem; 
         width: 200px; 
         height: 36px;
         font-size: 0.9rem;

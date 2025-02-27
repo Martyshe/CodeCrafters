@@ -5,8 +5,15 @@ import heartIcon from "./assets/heart-icon.png";
 import bagIcon from "./assets/bag-icon.png";
 import ThemeBtn from "../../themeBtn/ThemeBtn";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavMenu = () => {
+  // Получаем данные корзины из Redux store
+  const cartItems = useSelector(state => state.cart.items);
+  const totalUniqueItems = cartItems.length;
+
+  // Вычисляем общее количество товаров
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для управления бургерным меню
 
   const toggleMenu = () => {
@@ -53,15 +60,21 @@ const NavMenu = () => {
       </div>
 
       {/* Правая часть - иконки "сердце", "сумка" и бургерное меню */}
-      <div className={styles.rightSection}>
-        <div className={styles.headerIcon}>
-          <button className={styles.icon}>
-            <img src={heartIcon} alt="Сердце" />
-          </button>
-          <button className={styles.icon}>
-            <a href="/cart"><img src={bagIcon} alt="Сумка" /></a>
-          </button>
-        </div>
+     <div className={styles.headerIcon}>
+  <button className={styles.icon}>
+    <img src={heartIcon} alt="Сердце" />
+  </button>
+  <button className={styles.icon}>
+    <a href="/cart" className={styles.cartLink}>
+      <img src={bagIcon} alt="Сумка" />
+      {cartCount > 0 && (
+        <span className={styles.cartCounter}>
+          {totalUniqueItems}
+        </span>
+      )}
+   </a>
+  </button>
+  
 
         {/* Кнопка бургерного меню */}
         <button

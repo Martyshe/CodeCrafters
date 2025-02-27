@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { back } from "../../constants";
@@ -9,14 +9,34 @@ import {
   increaseQuantity,
   decreaseQuantity,
   removeFromCart,
+  clearCart
 } from "../../redux/cartSlice";
+
+const SuccessModal = ({ onClose }) => {
+  return (
+    <div className={styles.modalOverlay}>
+      <div className={styles.successModal}>
+        <button className={styles.closeButton} onClick={onClose}>
+          x
+        </button>
+        <h3 className={styles.modalTitle}>Congratulations</h3>
+        <p className={styles.modalText}>
+          Your order has been successfully placed on the website.
+          <br /> <br />
+          A manager will contact you shortly to confirm your order.
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default function Cart() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalUniqueItems = cartItems.length;
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -26,10 +46,19 @@ export default function Cart() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
     console.log("Form submitted:", data);
+    setShowSuccessModal(true);
+    reset();
+    dispatch(clearCart()); // Очищаем корзину
+  };
+
+  const handleCloseModal = () => {
+    setShowSuccessModal(false);
+    navigate("/"); 
   };
 
   const emptyCart = cartItems.length === 0;
@@ -41,6 +70,8 @@ export default function Cart() {
         btnText="Back to the store"
         path="/all-products"
       />
+
+      {showSuccessModal && <SuccessModal onClose={handleCloseModal} />}
 
       {emptyCart ? (
         <div className={styles.emptyCart}>
@@ -56,7 +87,11 @@ export default function Cart() {
               <div key={item.id} className={styles.cartItem}>
                 <img src={`${back}${item.image}`} alt={item.title} />
                 <div className={styles.itemDetails}>
-                <h3>{item.title.length > 20 ? `${item.title.slice(0, 20)}...` : item.title}</h3>
+                  <h3>
+                    {item.title.length > 20
+                      ? `${item.title.slice(0, 20)}...`
+                      : item.title}
+                  </h3>
 
                   <div className={styles.controlsPriceContainer}>
                     <div className={styles.quantityControls}>
@@ -95,14 +130,12 @@ export default function Cart() {
 
           <div className={styles.formContainer}>
             <h2 className={styles.title}>Order details</h2>
-            <p>{totalItems} items</p>
+            <p>{totalUniqueItems} items</p>
             <div className={styles.priceWrapper}>
-              <p>
-                Total:{" "}
-              </p>
+              <p>Total: </p>
               <span className={styles.totalPrise}>
-                  ${totalPrice.toFixed(2)}
-                </span>
+                ${totalPrice.toFixed(2)}
+              </span>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>

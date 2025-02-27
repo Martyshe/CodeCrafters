@@ -6,11 +6,14 @@ import { back } from "../../constants"; // Ваш базовый URL для из
 
 export default function ProductDetails() {
   const { id } = useParams(); // Получаем ID товара из URL
+
+
   const product = useSelector(state =>
     state.products.items.find(item => item.id === Number(id))
+  
   );
 
-  useEffect(() => {
+ useEffect(() => {
     if (!product) {
       // Если товар не найден, возможно нужно загрузить его
       console.error('Товар не найден в Redux или еще не загружен');

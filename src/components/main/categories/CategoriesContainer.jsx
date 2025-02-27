@@ -22,10 +22,10 @@ export default function CategoriesContainer({ amount }) {
     <div className={s.mainContainer}>
       <div className={s.categoriesContainer}>
         {category.map((el) => {
-          const isCategoriesPage = location.pathname.includes("/Categories");
+          const isCategoriesPage = location.pathname.includes("/categories");
           const linkTo = isCategoriesPage
             ? `/productsByCategory/${el.id}?title=${el.title}`
-            : `/Categories/${el.title}?id=${el.id}`;
+            : `/categories/${el.title}?id=${el.id}`;
 
           return (
             <Link key={el.id} to={`/categories/${el.id}?title=${el.title}`}>

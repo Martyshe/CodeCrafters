@@ -8,14 +8,11 @@ const Breadcrumbs = () => {
 
   if (!pathnames.length) return null; // Если мы на главной, не рендерим хлебные крошки
 
-  // ✅ Декодируем title из URL
+  //  title из URL
   const params = new URLSearchParams(location.search);
   let decodedTitle = params.get("title") ? decodeURIComponent(params.get("title")) : null;
 
-  // ✅ Берём только первое слово из title, если оно есть
-  if (decodedTitle) {
-    decodedTitle = decodedTitle.split(" ")[0];
-  }
+  
 
   let path = "";
   const breadcrumbs = [{ name: "Main Page", path: "/" }]; // Всегда добавляем "Main Page"

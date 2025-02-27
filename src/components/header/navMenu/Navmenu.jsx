@@ -1,16 +1,67 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./NavMenu.module.css";
 import logo from "./assets/logo.png";
 import heartIcon from "./assets/heart-icon.png";
 import bagIcon from "./assets/bag-icon.png";
 import ThemeBtn from "../../themeBtn/ThemeBtn";
-import { Link, NavLink } from "react-router-dom";
+import { back } from "../../../constants";
+import ProductOfTheDayModal from "../../productOfTheDayModal/ProductOfTheDayModal";
+import { useDispatch } from "react-redux"; //  Добавляю импорт useDispatch
+import { setProducts } from "../../../redux/productsSlice"; //  Добавляю импорт setProducts
+// import ProductList from "../../productList/ProductList";
+
 
 const NavMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для управления бургерным меню
 
+  const dispatch = useDispatch(); // Создаем dispatch
+
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [productOfTheDay, setProductOfTheDay] = useState(null);
+  const [allProducts, setAllProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Загрузка всех продуктов с сервера
+  useEffect(() => {
+    fetch(`${back}/products/all`)
+      .then((response) => response.json())
+      .then((data) => {
+        setAllProducts(data);
+        console.log(" Проверяю данных перед отправкой в Redux:", data);
+        dispatch(setProducts(data)); 
+        setIsLoading(false);
+        console.log("Загруженные товары:", data); // проверка, есть ли товары
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
+      });
+  }, []);
+
+    //  товара со скидкой 50%
+    const selectRandomProductOfTheDay = () => {
+      if (allProducts.length > 0) {
+        const randomIndex = Math.floor(Math.random() * allProducts.length);
+        const selectedProduct = { ...allProducts[randomIndex], discount: 50 };
+        setProductOfTheDay(selectedProduct);
+        return selectedProduct; // Теперь можно сразу использовать
+      }
+    };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen); // Переключаем состояние меню
+  };
+
+   // Функция открытия модального окна
+   const openModal = () => {
+    selectRandomProductOfTheDay(); // Выбираю товар дня перед открытием модального окна
+    setIsModalOpen(true);
+  };
+  // Функция закрытия модального окна
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -25,7 +76,15 @@ const NavMenu = () => {
 
       {/* Средняя часть - кнопка скидки и меню */}
       <div className={styles.navMenu}>
-        <button className={styles.discount}>1 day discount!</button>
+        {/* <button className={styles.discount}>1 day discount!</button> */}
+
+                {/* Кнопка открытия модального окна */}
+                <button className={styles.discount} onClick={openModal}>
+          1 day discount!
+        </button>
+                
+
+
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             <li>
@@ -59,7 +118,7 @@ const NavMenu = () => {
             <img src={heartIcon} alt="Сердце" />
           </button>
           <button className={styles.icon}>
-            <a href="/cart"><img src={bagIcon} alt="Сумка" /></a>
+            <img src={bagIcon} alt="Сумка" />
           </button>
         </div>
 
@@ -118,9 +177,21 @@ const NavMenu = () => {
             </li>
           </ul>
         </nav>
-        <button className={styles.dropdownDiscount}>1 day discount!</button>
+        <button className={styles.dropdownDiscount} onClick={openModal}>
+  1 day discount!
+</button>
       </div>
-    </div>
+         {/* Затемнение фона при открытой модалке */}
+         {isModalOpen && <div className={styles.overlay} onClick={closeModal}></div>}
+
+         {/* Модальное окно "Товар дня" */}
+         {isModalOpen && productOfTheDay && (
+         <ProductOfTheDayModal product={productOfTheDay} closeModal={closeModal} />
+          )}
+          </div>
+
+
+    
   );
 };
 

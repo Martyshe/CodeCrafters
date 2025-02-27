@@ -35,7 +35,7 @@ export default function Categories() {
           setTimeout(() => {
           setIsLoading(false);
           setShowSkeleton(false);
-        },2000);
+        },500);
       })
       .catch((error) => alert('Ошибка:', error));
   }, [numericCat]);

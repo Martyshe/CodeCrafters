@@ -34,7 +34,7 @@ const AllProductsPage = () => {
       setTimeout(() => {
         setIsLoading(false);
         setShowSkeleton(false);
-      }, 2000);
+      }, 500);
     }
   }, [products]);
 

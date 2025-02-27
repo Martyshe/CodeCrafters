@@ -2,37 +2,49 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import s from "./ProductCard.module.css";
-import { back } from "../../constants"; // Ваш базовый URL для изображений
+import { back } from "../../constants"; 
 import cartIcon from "../../badges/basketCardEmpty.svg";
 import heartIcon from "../../badges/Vector.svg";
 import IconButton from "../iconComponent/IconButton";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/cartSlice";
+import { addToCart, removeFromCart } from "../../redux/cartSlice";
 
 export default function ProductCard({ id, image, title, discont_price, price }) {
+    // меняет цвет кнопки при нажатии
+    const [isActive, setIsActive] = useState(false);
+  
+    const handleClick = () => {
+      setIsActive((prev) => !prev);
+    };
+  
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Проверка, существует ли состояние корзины и данные продуктов
-  const cartItems = useSelector(state => state.cart ? state.cart.items : []);
-  
-  // Проверяем, есть ли товар в корзине
+  const cartItems = useSelector(state => state.cart?.items || []);
   const isInCart = cartItems.some(item => item.id === id);
 
   const handleCartClick = (event) => {
-    event.stopPropagation(); // Предотвращаем переход при клике на иконку корзины
-    dispatch(addToCart({
-      id,
-      title,
-      image,
-      price: discont_price || price,
-      originalPrice: price,
-    }));
+    event.stopPropagation();
+    if (isInCart) {
+      // Если товар уже в корзине - удаляем
+      dispatch(removeFromCart(id));
+    } else {
+      // Если нет - добавляем
+      dispatch(addToCart({
+        id,
+        title,
+        image,
+        price: discont_price || price,
+        originalPrice: price,
+      }));
+    }
   };
 
   const [isFavorite, setIsFavorite] = useState(false);
   const handleFavoriteClick = (event) => {
-    event.stopPropagation(); // Предотвращаем переход при клике на иконку избранного
+    // event.stopPropagation(); // Предотвращаем переход при клике на иконку избранного
     setIsFavorite(!isFavorite);
   };
 
@@ -70,7 +82,11 @@ export default function ProductCard({ id, image, title, discont_price, price }) 
           iconSrc={cartIcon} 
           altText="Add to Cart" 
           isActive={isInCart} 
-          onClick={handleCartClick} 
+          onClick={(event) => {
+            // event.stopPropagation();
+            handleCartClick(event);
+            handleClick();
+          }} 
         />
         <IconButton 
           iconSrc={heartIcon} 

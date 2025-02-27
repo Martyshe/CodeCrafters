@@ -1,4 +1,25 @@
+/* Стили для ссылки корзины */
+.cartLink {
+  position: relative;
+  display: inline-block;
+}
 
+/* Счетчик товаров в корзине */
+.cartCounter {
+  position: absolute;
+  top: 7px;
+  left: 3px;
+  background: #92A134;
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 600;
+}
 .header {
     width: 100%;
     height: 8rem;

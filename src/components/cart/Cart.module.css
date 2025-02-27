@@ -110,7 +110,7 @@
 }
 .removeButton {
   position: absolute;
-  top: 0.5rem;
+  top: 0.3rem;
   right: 0.5rem;
   background: none;
   border: none;
@@ -253,16 +253,11 @@ button {
     gap: 0.3rem;
   }
  
- 
   .controlsPriceContainer {
     flex-direction: column;
     gap: 0.5rem;
     align-items: start;
   }
-
-  
-
-
 
   .formContainer > p {
     font-size: 1.5rem;
@@ -301,7 +296,20 @@ button {
     width: 50%;
   }
 }
-@media (max-width: 420px) {
+
+@media (max-width: 480px) {
+  .cartItem > img {
+    width: 180px;
+  }
+  .cartItem {
+    gap: 0.2rem;
+  }
+  .itemDetails > h3 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 440px) {
   .formContainer > .title {
     font-size: 2rem !important
   }
@@ -314,4 +322,41 @@ button {
     color: #424436;
 
   }
+  .cartItem {
+    gap: 0.1rem;
+  }
+  .cartItem > img {
+    width: 150px;
+  }
+}
+@media (max-width: 410px) {
+  .currentPrice {
+    font-size: 1.6rem;
+  }
+  .oldPrice {
+    margin-left: 0.1rem;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+  .priceContainer {
+    align-items: end;
+  }
+  .itemDetails > h3 {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 380px) {
+.priceContainer {
+  gap: 0.2rem;
+}
+.currentPrice {
+  font-size: 1.5rem;
+}
+.oldPrice {
+  margin-left: 0.1rem;
+  font-size: 1rem;
+}
+.cartItem > img {
+  width: 110px;
+}
 }

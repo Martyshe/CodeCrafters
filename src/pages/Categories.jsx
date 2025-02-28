@@ -4,6 +4,7 @@ import { back } from '../constants';
 import { useParams, useLocation } from 'react-router-dom';
 import { useProductFilter } from '../components/productsFilter/useProductFilter';
 import ProductsFilter from '../components/productsFilter/ProductsFilter';
+import Skeleton from '../components/skeleton/Skeleton';
 
 export default function Categories() {
   const { categoryId } = useParams();
@@ -12,6 +13,8 @@ export default function Categories() {
   const [products, setProducts] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState('All products');
   const [isFiltering, setIsFiltering] = useState(false); // Добавляем флаг фильтрации
+  const [isLoading, setIsLoading] = useState(true);
+  const [showSkeleton, setShowSkeleton] = useState(true);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -27,6 +30,12 @@ export default function Categories() {
       .then((data) => {
         console.log('Data from server:', data.data);
         setProducts(data.data);
+
+    // Устанавливаем задержку в 2 секунды перед скрытием скелетона
+          setTimeout(() => {
+          setIsLoading(false);
+          setShowSkeleton(false);
+        },500);
       })
       .catch((error) => alert('Ошибка:', error));
   }, [numericCat]);
@@ -50,12 +59,20 @@ export default function Categories() {
 
   return (
     <div style={{ padding: '2rem', color: '#424436' }}>
-      <h2 style={{ paddingBottom: '2rem' }}>{categoryTitle}</h2>
-      <ProductsFilter onFilterChange={handleFilters} />
+    <h2 style={{ paddingBottom: '2rem' }}>{categoryTitle}</h2>
+    {/* Фильтр */}
+    <ProductsFilter onFilterChange={handleFilters} />
+    {/* Отображаем скелетон, если showSkeleton равно true */}
+    {showSkeleton ? (
+      <div> {/* Добавляем padding для скелетона */}
+        <Skeleton />
+      </div>
+    ) : (
       <div id="products-section">
         {/* Показываем products, если фильтры не применены, и filteredProducts, если применены */}
         <ProductList products={isFiltering ? filteredProducts : products} />
       </div>
-    </div>
+    )}
+  </div>
   );
 }

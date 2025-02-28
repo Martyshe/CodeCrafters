@@ -115,6 +115,7 @@
     cursor: pointer;
     border-radius: 6px;
     flex-grow: 1;
+    border: none;
 }
 
 .descriptionContainer {

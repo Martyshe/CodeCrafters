@@ -76,7 +76,7 @@ export default function Cart() {
       {emptyCart ? (
         <div className={styles.emptyCart}>
           <p>Looks like you have no items in your basket currently.</p>
-          <button onClick={() => navigate("/all-products")}>
+          <button className={styles.continueShopping} onClick={() => navigate("/all-products")}>
             Continue Shopping
           </button>
         </div>

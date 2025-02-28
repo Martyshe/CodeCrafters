@@ -65,6 +65,73 @@
     font-weight: 500;
     margin-bottom: 36px;
 }
+/* Стили для модального окна */
+.modalOverlay {
+    position: fixed;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #28282866; /* Затемненный фон */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    z-index: 1000; /* Убедитесь, что модальное окно поверх других элементов */
+  }
+  
+  .modalContent {
+    /* background-color: white; */
+    top: 180px;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+  
+  .enlargedImage {
+    /* max-width: 100%;
+    max-height: 80vh; */
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 610px;
+    /* border: 10px; */
+    /* object-fit: contain; */
+  }
+  
+  
+  /* .productDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "image title"
+      "image price"
+      "image quantity"
+      "image description";
+    gap: 2rem;
+    padding: 40px;
+    align-items: start;
+  }
+  
+  .imageContainer {
+    grid-area: image;
+    cursor: pointer; 
+  }
+  
+  .productImage {
+    width: 100%;
+    max-width: 780px;
+    height: 572px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+   */
+  /* Остальные стили остаются без изменений */
+
 
 .cartContainer {
     display: flex;
@@ -167,6 +234,15 @@ h3 {
         width: 100%;
     }
 
+    
+
+    .enlargedImage{
+        width: 100%;
+        max-width: 900px;
+        height: 100%;
+        max-height: 610px;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -219,6 +295,12 @@ h3 {
     .quantityContainer{
         width: 200px;
         height: 48px;
+    }
+    .enlargedImage{
+        width: 100%;
+        max-width: 728px;
+        height: 100%;
+        max-height: 494px;
     }
 }
 
@@ -290,6 +372,12 @@ h3 {
     .descriptionContainer {
         text-align: left;
     }
+    .enlargedImage{
+        width: 100%;
+        max-width: 440px;
+        height: 100%;
+        max-height: 298px;
+    }
 }
 @media (max-width: 360px) {
     .productDetails {
@@ -352,4 +440,11 @@ h3 {
     .imageContainer {
         position: relative;
     }
+    .enlargedImage{
+        width: 100%;
+        max-width: 320px;
+        height: 100%;
+        /* max-height: 216px; */
+    }
+
 }

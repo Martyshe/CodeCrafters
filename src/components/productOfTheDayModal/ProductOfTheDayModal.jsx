@@ -1,10 +1,23 @@
 import React from "react";
 import styles from "./ProductOfTheDayModal.module.css";
 import { back } from "../../constants";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
 
 const ProductOfTheDayModal = ({ product, closeModal }) => {
-  // Расчёт скидки
-  // const discountPercentage = product.discont_price ? 50 : 0; 
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price / 2, // 50% скидка
+      originalPrice: product.price,
+      quantity: 1
+    }));
+    closeModal();
+  }; 
 
      
  
@@ -40,7 +53,9 @@ const ProductOfTheDayModal = ({ product, closeModal }) => {
         </div>
 
         {/* Кнопка "Добавить в корзину" */}
-        <button className={styles.addToCart}>Add to Cart</button>
+        <button className={styles.addToCartButton} onClick={handleAddToCart}>
+      Add to cart
+    </button>
       </div>
     </div>
   );

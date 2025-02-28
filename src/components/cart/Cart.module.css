@@ -98,7 +98,7 @@
 }
 
 .quantityControls > .quantities {
-  width: 2.5rem;
+  /* width: 2.5rem; */
   height: 2.5rem;
   font-size: 1.25rem;
   font-weight: 500;
@@ -110,8 +110,8 @@
 }
 .removeButton {
   position: absolute;
-  top: 0.3rem;
-  right: 0.5rem;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   font-size: 1rem;
@@ -185,7 +185,7 @@
   opacity: 0.8;
 }
 
-button {
+.button {
   padding: 1rem;
   border: none;
   border-radius: 0.3rem;
@@ -208,10 +208,23 @@ button {
   max-width: 60%;
 }
 
-.emptyCart > button {
+/* .emptyCart > button {
   padding: 1rem;
   padding: 1rem 2rem;
   max-width: 20rem;
+} */
+.continueShopping {
+  padding: 1rem;
+  padding: 1rem 2rem;
+  max-width: 400px;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  background-color: #92a134;
+  color: white;
 }
 
 @media (max-width: 1128px) {

@@ -183,7 +183,9 @@ const NavMenu = () => {
             </li>
           </ul>
         </nav>
-        <button className={styles.dropdownDiscount}>1 day discount!</button>
+        <button className={styles.discount} onClick={openModal}>
+          1 day discount!
+        </button>
       </div>
       {/* Затемнение фона при открытой модалке */}
       {isModalOpen && <div className={styles.overlay} onClick={closeModal}></div>}

@@ -28,16 +28,15 @@ export default function ProductCard({ id, image, title, discont_price, price }) 
   const handleCartClick = (event) => {
     event.stopPropagation();
     if (isInCart) {
-      // Если товар уже в корзине - удаляем
       dispatch(removeFromCart(id));
     } else {
-      // Если нет - добавляем
       dispatch(addToCart({
         id,
         title,
         image,
         price: discont_price || price,
         originalPrice: price,
+        quantity: 1 // Добавляем количество
       }));
     }
   };
@@ -74,7 +73,7 @@ export default function ProductCard({ id, image, title, discont_price, price }) 
       )}
       {!discont_price && <p className={s.actualPrice}>{`$${price}`}</p>}
       {discountPercentage > 0 && (
-        <div className={s.discountBadge}>{discountPercentage}%</div>
+        <div className={s.discountBadge}>-{discountPercentage}%</div>
       )}
 
       <div className={s.badgesContainer}>

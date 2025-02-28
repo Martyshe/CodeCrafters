@@ -1,3 +1,10 @@
+/* .darkThemeWrapper {
+  background-color: black;
+  color: white;
+  margin-top: -4px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+} */
 .cardsContainer {
   position: relative;
   border-radius: 10px;

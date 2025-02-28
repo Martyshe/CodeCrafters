@@ -2,8 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import s from "./ProductDetails.module.css";
 import { back } from "../../constants";
-
+import { addToCart } from "../../redux/cartSlice";
+import { useDispatch } from "react-redux";
 export default function ProductDetails() {
+  const dispatch = useDispatch();
+  
+  const handleAddToCart = () => {
+    dispatch(addToCart({
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.discont_price || product.price,
+      originalPrice: product.price,
+      quantity: quantity // Используем выбранное количество
+    }));
+  };
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -102,7 +115,9 @@ truncatedDescription: Если описание длинное и не раск�
           <button className={s.quantityButton} onClick={() => setQuantity(prev => prev + 1)}>+</button>
         </div>
         <div className={s.AddToCartButtonWrapper}>
-        <button className={s.addToCartButton}>Add to cart</button>
+        <button className={s.addToCartButton} onClick={handleAddToCart}>
+      Add to cart
+    </button>
         </div>
       </div>
 

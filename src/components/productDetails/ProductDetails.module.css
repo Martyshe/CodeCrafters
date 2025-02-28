@@ -48,6 +48,67 @@
     font-size: 64px;
 }
 
+/* Стили для модального окна */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #28282866; /* Затемненный фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Убедитесь, что модальное окно поверх других элементов */
+  }
+  
+  .modalContent {
+    /* background-color: white; */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+  }
+  
+  .enlargedImage {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 6px;
+    object-fit: contain;
+  }
+  
+  
+  /* .productDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "image title"
+      "image price"
+      "image quantity"
+      "image description";
+    gap: 2rem;
+    padding: 40px;
+    align-items: start;
+  }
+  
+  .imageContainer {
+    grid-area: image;
+    cursor: pointer; 
+  }
+  
+  .productImage {
+    width: 100%;
+    max-width: 780px;
+    height: 572px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+   */
+  /* Остальные стили остаются без изменений */
+
 .oldPrice {
     text-decoration: line-through;
     color: #8B8B8B;

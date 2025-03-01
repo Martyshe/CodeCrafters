@@ -78,7 +78,7 @@ export default function ProductCard({
   return (
     <div
       className={s.cardsContainer}
-      onClick={() => navigate(`/product/${id}`)}
+      onClick={() => navigate(`/${title}/${id}`)}
     >
       <img src={imageUrl} alt={title} />
       <p className={s.itemName}>{title}</p>

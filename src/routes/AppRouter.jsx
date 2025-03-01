@@ -8,6 +8,7 @@ import Cart from '../components/cart/Cart';
 import ProductDetails from '../components/productDetails/ProductDetails';
 import Categories from '../pages/Categories';
 import NotFound from '../components/404/NotFound';
+import FavoritesPage from '../pages/favorites/FavoritesPage';
 
 const AppRouter = () => (
     <Router>
@@ -18,9 +19,10 @@ const AppRouter = () => (
             <Route path="/all-products" element={<AllProductsPage />} />
             <Route path="/all-sales" element={<AllSalesPage />} />
             <Route path="/categories/:categoryId" element={<Categories />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} /> 
         </Routes>
     </Router>
 );

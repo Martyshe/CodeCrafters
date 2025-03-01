@@ -4,8 +4,7 @@ import logo from "./assets/logo.png";
 import heartIcon from "./assets/heart-icon.png";
 import bagIcon from "./assets/bag-icon.png";
 import ThemeBtn from "../../themeBtn/ThemeBtn";
-import { Link, NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { back } from "../../../constants";
 import ProductOfTheDayModal from "../../productOfTheDayModal/ProductOfTheDayModal";
 
@@ -13,6 +12,9 @@ const NavMenu = () => {
   // Получаем данные корзины из Redux store
   const cartItems = useSelector((state) => state.cart.items);
   const totalUniqueItems = cartItems.length;
+
+  const favorites = useSelector(state => state.favorites?.items || []);
+  const favoritesCount = favorites.length;
 
   // Вычисляем общее количество товаров
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -26,7 +28,7 @@ const NavMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [productOfTheDay, setProductOfTheDay] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Загрузка всех продуктов с сервера
@@ -37,12 +39,12 @@ const NavMenu = () => {
         setAllProducts(data);
         console.log(" Проверяю данных перед отправкой в Redux:", data);
         // dispatch(setProducts(data));
-        setIsLoading(false);
+        // setIsLoading(false);
         console.log("Загруженные товары:", data); // проверка, есть ли товары
       })
       .catch((error) => {
         setError(error);
-        setIsLoading(false);
+        // setIsLoading(false);
       });
   }, []);
 
@@ -110,19 +112,23 @@ const NavMenu = () => {
 
       {/* Правая часть - иконки "сердце", "сумка" и бургерное меню */}
       <div className={styles.headerIcon}>
-        <button className={styles.icon}>
-          <a href="/favorites">
-            <img src={heartIcon} alt="Сердце" />
-          </a>
-        </button>
-        <button className={styles.icon}>
-          <a href="/cart" className={styles.cartLink}>
-            <img src={bagIcon} alt="Сумка" />
-            {cartCount > 0 && (
-              <span className={styles.cartCounter}>{totalUniqueItems}</span>
-            )}
-          </a>
-        </button>
+  <button className={styles.icon}>
+    <a href="/favorites" className={styles.cartLink}>
+      <img src={heartIcon} alt="Сердце" />
+      {favoritesCount > 0 && (
+        <span className={styles.favoritesCounter}>{favoritesCount}</span>
+      )}
+    </a>
+  </button>
+  <button className={styles.icon}>
+    <a href="/cart" className={styles.cartLink}>
+      <img src={bagIcon} alt="Сумка" />
+      {cartCount > 0 && (
+        <span className={styles.cartCounter}>{totalUniqueItems}</span>
+      )}
+    </a>
+  </button>
+
 
         {/* Кнопка бургерного меню */}
         <button

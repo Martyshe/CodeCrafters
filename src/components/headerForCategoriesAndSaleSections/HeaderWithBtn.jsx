@@ -14,7 +14,7 @@ export default function HeaderWithBtn({ headerText, btnText, path }) {
           <div className={s.line}></div>
           <div>
             <NavLink to={path}>
-              <button>{btnText}</button>
+              <button className={s.button}>{btnText}</button>
             </NavLink>
           </div>
         </div>

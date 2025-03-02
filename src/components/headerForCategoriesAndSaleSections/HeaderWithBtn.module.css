@@ -39,6 +39,10 @@ h2 {
   background-color: transparent;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   h2{
     font-size: 3.5rem;

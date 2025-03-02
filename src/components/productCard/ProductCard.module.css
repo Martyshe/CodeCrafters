@@ -13,8 +13,14 @@
   width: 100%;
   /* max-width: 316px; */
   max-width: 22vw;
+  transition: transform 0.3s ease;
 
 }
+
+.cardsContainer:hover {
+  transform: translateY(-5px);
+}
+
 .cardsContainer > img {
   object-fit: cover;
   width: 100%;

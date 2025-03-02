@@ -5,6 +5,7 @@
     transition: transform 0.3s ease;
     max-width: 100%;
   }
+
   
   .categoryCard:hover {
     transform: translateY(-5px);

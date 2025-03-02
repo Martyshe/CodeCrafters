@@ -101,37 +101,6 @@
     /* border: 10px; */
     /* object-fit: contain; */
   }
-  
-  
-  /* .productDetails {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas:
-      "image title"
-      "image price"
-      "image quantity"
-      "image description";
-    gap: 2rem;
-    padding: 40px;
-    align-items: start;
-  }
-  
-  .imageContainer {
-    grid-area: image;
-    cursor: pointer; 
-  }
-  
-  .productImage {
-    width: 100%;
-    max-width: 780px;
-    height: 572px;
-    border-radius: 6px;
-    object-fit: cover;
-  }
-   */
-  /* Остальные стили остаются без изменений */
-
 
 .cartContainer {
     display: flex;

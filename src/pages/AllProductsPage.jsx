@@ -57,10 +57,10 @@ const AllProductsPage = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', color: '#424436' }}>
-      <h2 style={{ paddingBottom: '2rem' }}>All Products</h2>
+    <div >
+      <h2 style={{ paddingBottom: '2rem', paddingLeft:'2rem',paddingTop:'2rem',color: 'rgb(66, 68, 54)' }}>All Products</h2>
       {/* Фильтр */}
-      <ProductsFilter onFilterChange={handleFilterChange} />
+      <ProductsFilter onFilterChange={handleFilterChange}  style={{paddingLeft:'2rem' }}/>
       {/* Отображаем скелетон, если showSkeleton равно true */}
       {showSkeleton ? (
         <Skeleton />

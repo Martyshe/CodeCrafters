@@ -1,13 +1,15 @@
 /* CategoriesContainer.module.css */
 .mainContainer {
   max-width: 100%;
-  padding: 2rem;
+  /* padding: 2rem; */
+  padding-left: 2rem;
+  padding-right: 2rem;
   color: #424436;
 }
 
 .categoriesContainer {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
   gap: 1.25rem;
   padding-bottom: 3rem;
 }
@@ -19,7 +21,7 @@
 }
 
 /* Остальные стили остаются без изменений */
-@media (min-width: 1000px) {
+/* @media (min-width: 1000px) {
   .categoriesContainer {
     grid-template-columns: repeat(4, 1fr) !important;
   }
@@ -28,6 +30,24 @@
 @media (min-width: 480px) {
   .categoriesContainer {
     grid-template-columns: repeat(2, 1fr);
+  }
+} */
+
+@media (max-width: 1000px) {
+  .categoriesContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .categoriesContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoriesContainer {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

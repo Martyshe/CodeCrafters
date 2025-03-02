@@ -47,12 +47,20 @@
       font-size: 0.875rem;
       margin: 8px 0;
     }
+
+
   }
   
 
-  @media (min-width: 481px) and (max-width: 768px) {
+  @media (max-width: 768px) {
     .categoryCard p {
       font-size: 1rem;
+    }
+
+    .categoryCard{
+      width: 100%;
+      max-width: 354px;
+      /* height: 292px; */
     }
   }
   

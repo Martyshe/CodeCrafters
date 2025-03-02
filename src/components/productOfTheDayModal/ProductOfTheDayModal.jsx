@@ -12,7 +12,7 @@ const ProductOfTheDayModal = ({ product, closeModal }) => {
       id: product.id,
       title: product.title,
       image: product.image,
-      price: product.price / 2, // 50% скидка
+      price: `${(product.price / 2).toFixed(2)}`, // 50% скидка
       originalPrice: product.price,
       quantity: 1
     }));
@@ -27,10 +27,10 @@ const ProductOfTheDayModal = ({ product, closeModal }) => {
         
         {/* Заголовок "50% discount" в зелёном блоке */}
         <h2 className={styles.discountText}>50% discount on <br/> product of the day!</h2>
+        <button className={styles.closeButton} onClick={closeModal}>&times;</button>
         
         {/* Белый блок с товаром */}
         <div className={styles.modalContent}>
-          <button className={styles.closeButton} onClick={closeModal}>&times;</button>
            {/* Значок скидки на картинке */}
             {/* {discountPercentage > 0 && (  */}
             <div className={styles.discountBadge}>-50%</div>

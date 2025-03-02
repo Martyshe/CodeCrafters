@@ -16,7 +16,10 @@
 }
 
 .contactBox {
-  background-color: #f2f6d3;
+  /* background-color: #f2f6d3; */
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -26,6 +29,9 @@
   align-items: flex-start;
   height: 100%;
 }
+
+
+
 
 .contactBox > h3 {
   font-weight: 500;

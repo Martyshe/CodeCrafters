@@ -81,14 +81,18 @@ export default function ProductCard({
       onClick={() => navigate(`/${title}/${id}`)}
     >
       <img src={imageUrl} alt={title} />
-      <p className={s.itemName}>{title}</p>
-      {price && discont_price && (
-        <p className={s.actualPrice}>
-          {`$${discont_price}`}
-          <span className={s.oldPrice}>{`$${price}`}</span>
-        </p>
-      )}
-      {!discont_price && <p className={s.actualPrice}>{`$${price}`}</p>}
+      <div className={s.darkThemeWrapper}>
+        <p className={s.itemName}>{title}</p>
+        {price && discont_price && (
+          <p className={s.actualPrice}>
+            {`$${discont_price}`}
+            <span className={s.oldPrice}>{`$${price}`}</span>
+          </p>
+        )}
+        {!discont_price && <p className={s.actualPrice}>{`$${price}`}</p>}
+      </div>
+    
+     
       {discountPercentage > 0 && (
         <div className={s.discountBadge}>-{discountPercentage}%</div>
       )}

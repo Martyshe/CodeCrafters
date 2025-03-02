@@ -16,7 +16,7 @@
 
 }
 .cardsContainer > img {
-  object-fit: cover;
+  /* object-fit: cover; */
   width: 100%;
   /* max-width: 316px; */
   height: 284px;

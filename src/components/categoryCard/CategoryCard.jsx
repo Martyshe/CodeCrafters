@@ -5,10 +5,11 @@ export default function CategoryCard({ image, title }) {
   console.log();
   return (
     <div className={s.categoryCard}>
-      <div>
+      <div className={s.wrapper}>
         <img src={`${back}${image}`} alt={title}></img>
+        <p>{title}</p> 
       </div>
-      <p>{title}</p>
+
     </div>
   );
 }

@@ -28,8 +28,8 @@ const FavoritesPage = () => {
   const { filteredProducts, handleFilterChange } = useProductFilter(initialFilters, null, favorites);
 
   return (
-    <div style={{ padding: "2rem", color: "#424436" }}>
-      <h2 style={{ paddingBottom: "2rem" }}>Favorites</h2>
+    <div style={{  color: "#424436" }}>
+      <h2 style={{ paddingBottom: "2rem" ,paddingLeft:'2rem',paddingTop:'2rem'}}>Favorites</h2>
 
       {favorites.length === 0 ? (
         <div className={s.emptyState}>

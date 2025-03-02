@@ -14,7 +14,7 @@
   border: 1px #dddddd solid;
   width: 100%;
   /* max-width: 316px; */
-  max-width: 22vw;
+  /* max-width: 22vw; */
   transition: transform 0.3s ease;
 
 }
@@ -26,7 +26,7 @@
   /* object-fit: cover; */
   width: 100%;
   /* max-width: 316px; */
-  height: 284px;
+  /* height: 284px; */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #fffff1;

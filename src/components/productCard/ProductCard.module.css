@@ -14,7 +14,7 @@
   border: 1px #dddddd solid;
   width: 100%;
   /* max-width: 316px; */
-  /* max-width: 22vw; */
+  max-width: 22vw;
   transition: transform 0.3s ease;
 
 }

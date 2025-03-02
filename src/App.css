@@ -1,3 +1,13 @@
+:root {
+    --contact-box-bg: white;
+    --contact-box-text: black;
+}
+
+body.dark-theme {
+    --contact-box-bg: #444444;
+    --contact-box-text: white;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,5 +16,65 @@
 }
 
 body {
-    background-color: #FFFFF1;   
+    background-color: #FFFFF1;
 }
+
+/* Темная тема */
+body.dark-theme {
+    background-color: #222718;  /* Темный фон */
+    color: white;
+}
+
+/* Темная тема для обертки */
+body.dark-theme .darkThemeWrapper  {
+    background-color: #222718 !important;
+    color: white !important;
+}
+
+/* Белый цвет ссылок в темной теме */
+body.dark-theme a {
+    color: white;
+}
+
+/* Исключаем изображения из влияния темной темы */
+/* body.dark-theme img {
+    opacity: 1;  
+} */
+
+/* Стили для кнопки переключателя в темной теме */
+body.dark-theme .themeToggle .btn {
+    background-color: #444444;  /* Темный фон кнопки */
+    border: 4px solid #444444;
+}
+
+body.dark-theme .themeToggle .btn::before {
+    background-color: #ffffff;  /* Белый кружок */
+}
+
+/* Стили для иконок в темной теме */
+body.dark-theme .iconSun {
+    opacity: 0.3; /* Иконка солнца будет полупрозрачной в темной теме */
+}
+
+body.dark-theme .iconMoon {
+    opacity: 1; /* Иконка луны видна */
+}
+
+/* Заголовки в темной теме */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme li {
+    color: white;  /* Белый цвет текста для всех элементов */
+}
+
+
+body.dark-theme .heartIcon .bagIcon {
+    color: white;
+}
+

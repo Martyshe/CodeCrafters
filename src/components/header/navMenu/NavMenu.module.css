@@ -107,7 +107,10 @@
   .headerIcon {
     display: flex;
     gap: 1rem;
+    
   }
+
+  
   /* Стили для кнопок-иконок */
   .icon {
     background: none;

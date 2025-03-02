@@ -1,8 +1,20 @@
+/* .darkThemeWrapper .dark-theme {
+  background-color: black;
+  color: white;
+  margin-top: -4px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+} */
+
+
 .cardsContainer {
   position: relative;
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px #dddddd solid;
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .cardsContainer > img {
   object-fit: cover;
@@ -18,10 +30,10 @@
   border: 0.5px #dddddd solid;
 }
 .itemName {
-  white-space: nowrap; /* Запрещает перенос на новую строку */
-  overflow: hidden; /* Обрезает текст, выходящий за границы */
-  text-overflow: ellipsis; /* Добавляет "..." в конце */
-  width: 19.75rem; /* Ограничиваем ширину */
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  width: 19.75rem; 
   padding: 1rem 2rem;
   font-size: 1.25rem;
   font-weight: 500;
@@ -31,6 +43,7 @@
   font-size: 2.5rem;
   font-weight: 600;
 }
+
 .oldPrice {
   padding-left: 1rem;
   font-size: 1.25rem;

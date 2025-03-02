@@ -58,8 +58,8 @@ export default function Categories() {
   };
 
   return (
-    <div style={{ padding: '2rem', color: '#424436' }}>
-    <h2 style={{ paddingBottom: '2rem' }}>{categoryTitle}</h2>
+    <div style={{ color: 'rgb(66, 68, 54)' }}>
+    <h2 style={{ paddingBottom:'2rem' , paddingLeft:'2rem', paddingTop:'2rem'}}>{categoryTitle}</h2>
     {/* Фильтр */}
     <ProductsFilter onFilterChange={handleFilters} />
     {/* Отображаем скелетон, если showSkeleton равно true */}

@@ -5,7 +5,6 @@ export default function CategoriesPage() {
   const style = {
     maxWidth: "100%",
     padding: "2rem",
-    paddingBottom: "0",
     color: "#424436",
   };
   return (

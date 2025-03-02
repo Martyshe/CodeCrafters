@@ -305,9 +305,6 @@
   .priceWrapper {
     font-size: 1.5rem;
   }
-  img {
-    width: 50%;
-  }
 }
 
 @media (max-width: 480px) {

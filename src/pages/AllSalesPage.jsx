@@ -140,10 +140,7 @@ export default function AllSalesPage() {
     <div>
       <h2 style={style}>Discounted items</h2>
       {/* Передаем handleFilterChange в компонент ProductsFilter и скрываем кнопку "Discounted items" */}
-      <ProductsFilter onFilterChange={handleFilterChange} hideDiscountedCheckbox    filterStyle={{
-    paddingLeft: "2.25rem",
-    borderRadius: "8px",
-  }}/>
+      <ProductsFilter onFilterChange={handleFilterChange} hideDiscountedCheckbox  />
       <SaleSection products={discountedProducts} amount={discountedProducts.length} />
     </div>
   );

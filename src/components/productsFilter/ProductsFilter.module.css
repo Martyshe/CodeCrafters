@@ -1,6 +1,7 @@
 
 .filterContainer {
     padding-bottom: 2.5rem;
+    padding-left: 2rem;
 }
 
 .filterContainerProducts {
@@ -76,7 +77,8 @@ span {
     }
 
     .filterContainer{
-        padding-left: 0;
+        /* padding-left: 0; */
+        padding-left: 2rem;
     }
 
     .input {

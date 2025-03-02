@@ -4,16 +4,17 @@ import logo from "./assets/logo.png";
 import heartIcon from "./assets/heart-icon.png";
 import bagIcon from "./assets/bag-icon.png";
 import ThemeBtn from "../../themeBtn/ThemeBtn";
-import { Link, NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {back} from "../../../constants"
-import ProductOfTheDayModal from "../../productOfTheDayModal/ProductOfTheDayModal"
-
+import { useSelector } from "react-redux";
+import { back } from "../../../constants";
+import ProductOfTheDayModal from "../../productOfTheDayModal/ProductOfTheDayModal";
 
 const NavMenu = () => {
   // Получаем данные корзины из Redux store
-  const cartItems = useSelector(state => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items);
   const totalUniqueItems = cartItems.length;
+
+  const favorites = useSelector(state => state.favorites?.items || []);
+  const favoritesCount = favorites.length;
 
   // Вычисляем общее количество товаров
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -27,7 +28,7 @@ const NavMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [productOfTheDay, setProductOfTheDay] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Загрузка всех продуктов с сервера
@@ -37,30 +38,28 @@ const NavMenu = () => {
       .then((data) => {
         setAllProducts(data);
         console.log(" Проверяю данных перед отправкой в Redux:", data);
-        // dispatch(setProducts(data)); 
-        setIsLoading(false);
+        // dispatch(setProducts(data));
+        // setIsLoading(false);
         console.log("Загруженные товары:", data); // проверка, есть ли товары
       })
       .catch((error) => {
         setError(error);
-        setIsLoading(false);
+        // setIsLoading(false);
       });
   }, []);
 
-    //  товара со скидкой 50%
-    const selectRandomProductOfTheDay = () => {
-      if (allProducts.length > 0) {
-        const randomIndex = Math.floor(Math.random() * allProducts.length);
-        const selectedProduct = { ...allProducts[randomIndex], discount: 50 };
-        setProductOfTheDay(selectedProduct);
-        return selectedProduct; // Теперь можно сразу использовать
-      }
-    };
+  //  товара со скидкой 50%
+  const selectRandomProductOfTheDay = () => {
+    if (allProducts.length > 0) {
+      const randomIndex = Math.floor(Math.random() * allProducts.length);
+      const selectedProduct = { ...allProducts[randomIndex], discount: 50 };
+      setProductOfTheDay(selectedProduct);
+      return selectedProduct; // Теперь можно сразу использовать
+    }
+  };
 
-
-
-   // Функция открытия модального окна
-   const openModal = () => {
+  // Функция открытия модального окна
+  const openModal = () => {
     selectRandomProductOfTheDay(); // Выбираю товар дня перед открытием модального окна
     setIsModalOpen(true);
   };
@@ -81,8 +80,8 @@ const NavMenu = () => {
 
       {/* Средняя часть - кнопка скидки и меню */}
       <div className={styles.navMenu}>
-           {/* Кнопка открытия модального окна */}
-           <button className={styles.discount} onClick={openModal}>
+        {/* Кнопка открытия модального окна */}
+        <button className={styles.discount} onClick={openModal}>
           1 day discount!
         </button>
         <nav className={styles.nav}>
@@ -112,21 +111,24 @@ const NavMenu = () => {
       </div>
 
       {/* Правая часть - иконки "сердце", "сумка" и бургерное меню */}
-     <div className={styles.headerIcon}>
+      <div className={styles.headerIcon}>
   <button className={styles.icon}>
-    <img src={heartIcon} alt="Сердце" />
+    <a href="/favorites" className={styles.cartLink}>
+      <img src={heartIcon} alt="Сердце" />
+      {favoritesCount > 0 && (
+        <span className={styles.favoritesCounter}>{favoritesCount}</span>
+      )}
+    </a>
   </button>
   <button className={styles.icon}>
     <a href="/cart" className={styles.cartLink}>
       <img src={bagIcon} alt="Сумка" />
       {cartCount > 0 && (
-        <span className={styles.cartCounter}>
-          {totalUniqueItems}
-        </span>
+        <span className={styles.cartCounter}>{totalUniqueItems}</span>
       )}
-   </a>
+    </a>
   </button>
-  
+
 
         {/* Кнопка бургерного меню */}
         <button
@@ -162,7 +164,7 @@ const NavMenu = () => {
         <nav className={styles.dropdownNav}>
           <ul className={styles.dropdownNavList}>
             <li>
-            <a href="/" className={styles.navLink}>
+              <a href="/" className={styles.navLink}>
                 Main Page
               </a>
             </li>
@@ -188,12 +190,17 @@ const NavMenu = () => {
         </button>
       </div>
       {/* Затемнение фона при открытой модалке */}
-      {isModalOpen && <div className={styles.overlay} onClick={closeModal}></div>}
+      {isModalOpen && (
+        <div className={styles.overlay} onClick={closeModal}></div>
+      )}
 
-    {/* Модальное окно "Товар дня" */}
-    {isModalOpen && productOfTheDay && (
-      <ProductOfTheDayModal product={productOfTheDay} closeModal={closeModal} />
- )}
+      {/* Модальное окно "Товар дня" */}
+      {isModalOpen && productOfTheDay && (
+        <ProductOfTheDayModal
+          product={productOfTheDay}
+          closeModal={closeModal}
+        />
+      )}
     </div>
   );
 };

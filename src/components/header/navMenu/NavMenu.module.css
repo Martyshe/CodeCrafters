@@ -342,5 +342,15 @@
     width: 2rem; 
     height: 2rem;
   }
+
+  .cartCounter{
+    width: 17.3px;
+    height: 17.3px;
+  }
+
+  .favoritesCounter{
+    width: 17.3px;
+    height: 17.3px;
+  }
 }
 

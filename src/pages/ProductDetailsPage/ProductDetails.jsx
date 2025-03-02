@@ -86,7 +86,7 @@ export default function ProductDetails() {
       <div className={s.favoriteButtonContainer}>
         <IconButton
           iconSrc={heartIcon}
-          altText={isFavorite ? "Remove from favorite" : "Add to favorite"}
+          altText={isFavorite ? "Remove from favorites" : "Add to favorites"}
           isActive={isFavorite}
           onClick={handleFavoriteClick}
         />

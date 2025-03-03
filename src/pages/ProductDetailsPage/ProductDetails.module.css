@@ -115,18 +115,22 @@
 
 .quantityButton {
     background-color: white;
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
     border: 1px solid #DDDDDD;
-    color: #8B8B8B;
+    color:#8B8B8B;
     border-radius: 6px;
     padding: 17px;
     width: 58px;
     height: 58px;
+    /* font-size: 30px; */
 }
 
 .quantityNumber {
     font-size: 1.25rem;
     color: #424436;
-    background-color: white;
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
     border: 1px solid #DDDDDD;
     border-radius: 6px;
     text-align: center;

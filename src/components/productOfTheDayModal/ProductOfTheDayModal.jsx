@@ -126,7 +126,7 @@ const ProductOfTheDayModal = ({ product, closeModal }) => {
 
           <div className={styles.discountBadge}>-50%</div>
           <img src={`${back}${product.image}`} alt={product.name} className={styles.productImage} />
-
+      
           <div className={styles.separator}></div>
           <div className={styles.productInfo}>
             <p className={styles.productName}>{product.title}</p>

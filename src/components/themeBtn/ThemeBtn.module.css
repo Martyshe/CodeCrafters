@@ -1,7 +1,7 @@
 /* Стили для кнопки-переключателя */
 .btn {
-  width: 56px;
-  height: 28px;
+  width: 65px;
+  height: 32px;
   background-color: #8b8b8b;
   border-radius: 30px;
   display: flex;
@@ -120,6 +120,12 @@
     top: 25%;
     left: 60%; 
   }
+
+  .iconSun {
+  width: 1.1rem;
+  height: 1.1rem;
+  top: 26%;
+  }
 }
 
 /* Для экрана шириной 360px */
@@ -139,4 +145,6 @@
     top: 30%;
     left: 60%; 
   }
+
+  
 }

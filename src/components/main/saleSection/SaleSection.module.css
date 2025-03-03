@@ -46,7 +46,7 @@ h2 {
 /* --- Гибкая сетка карточек --- */
 .cardsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Автоматически подстраивается */
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Автоматически подстраивается */
   gap: 1.5rem;
 }
 

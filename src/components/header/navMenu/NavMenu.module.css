@@ -7,7 +7,7 @@
 /* Счетчик товаров в корзине */
 .cartCounter {
   position: absolute;
-  top: 7px;
+  top: 5px;
   left: 3px;
   background: #92A134;
   color: white;
@@ -23,8 +23,7 @@
 
 .favoritesCounter {
   position: absolute;
-  top: 7px;
-  left: 3px;
+  top: 5px;
   background: #92A134;
   color: white;
   width: 22px;

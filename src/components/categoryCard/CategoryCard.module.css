@@ -1,0 +1,82 @@
+.categoryCard {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+    max-width: 100%;
+  }
+  
+  .categoryCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .categoryCard > div {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 70%; 
+  }
+  
+  .categoryCard img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+  
+  .categoryCard p {
+    text-align: center;
+    color: #424436;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 12px 0;
+    padding: 0 8px;
+    line-height: 1.3;
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+ 
+  @media (max-width: 480px) {
+    .categoryCard p {
+      font-size: 0.875rem;
+      margin: 8px 0;
+    }
+  }
+  
+
+  @media (min-width: 481px) and (max-width: 768px) {
+    .categoryCard p {
+      font-size: 1rem;
+    }
+  }
+  
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .categoryCard > div {
+      padding-bottom: 80%;
+    }
+  }
+  
+
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .categoryCard > div {
+      padding-bottom: 75%;
+    }
+  }
+  
+
+  @media (min-width: 1281px) {
+    .categoryCard > div {
+      padding-bottom: 65%;
+    }
+    .categoryCard p {
+      font-size: 1.125rem;
+    }
+  }
+

@@ -1,0 +1,140 @@
+
+.filterContainer {
+    padding-bottom: 2.5rem;
+}
+
+.filterContainerProducts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    align-items: center; 
+    gap: 1rem; 
+}
+
+.filterGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.input {
+    padding: 8px 0 8px 16px;
+    width: 112px;
+    height: 36px;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px; 
+}
+
+
+.inputTo {
+    margin-right: 2.5rem;
+}
+
+.input::placeholder {
+    color: #8B8B8B;
+    font-size: 1rem;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center; 
+    
+}
+
+.inputDiscounted {
+    margin-left: 1rem; 
+    margin-right: 2.5rem;
+    width: 36px; 
+    height: 36px;
+    
+    
+}
+
+.select {
+    width: 200px; 
+    padding: 8px 8px 8px 16px;
+    font-size: 16px; 
+    border: 1px solid #DDDDDD;
+    border-radius: 4px; 
+    appearance: none; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 20px; 
+    cursor: pointer; 
+}
+
+span {
+    font-size: 1.25rem;
+} 
+
+/* Медиа-запрос для экранов с шириной до 1000px */
+@media (max-width: 1000px) {
+    .filterContainerProducts {
+        flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
+        gap: 2.25rem; /* Уменьшаем отступы между элементами */
+    }
+
+    .filterContainer{
+        padding-left: 0;
+    }
+
+    .input {
+        width: 90px; 
+    }
+
+    .select {
+        width: 150px;
+    }
+
+    .inputTo {
+        margin-right: 1rem; 
+    }
+
+
+    .inputDiscounted {
+        margin-left: 0.5rem; 
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .filterContainerProducts {
+        flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+        gap: 2rem; /* Уменьшаем отступы между элементами */
+    }
+    
+    
+    .input {
+        width: 112px; 
+        height: 36px;
+    }
+    
+}
+
+/* Медиа-запрос для экранов с шириной до 480px */
+@media (max-width: 480px) {
+    .filterContainerProducts {
+        flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+    }
+
+    .select {
+        width: 200px; 
+        height: 36px;
+        font-size: 0.9rem;
+    }
+
+    .input{
+        width: 112px;
+        height:34px ;
+    }
+
+    .input::placeholder{
+        font-size: 0.9rem;
+    } 
+
+    span{
+        font-size: 1.1rem;
+     }
+}
+

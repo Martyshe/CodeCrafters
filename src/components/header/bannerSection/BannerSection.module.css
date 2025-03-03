@@ -1,0 +1,66 @@
+
+.banner {
+    position: relative; /*Позволяет позиционировать вложенные элементы относительно этой секции */
+    width: 100%;  /* Фиксированная ширина баннера */
+    display: flex; /* Используем flexbox для выравнивания содержимого */
+    align-items: center;  /* Центрируем элементы по вертикали */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    text-align: center; /* Выравниваем текст по центру */
+    color: white;
+    overflow: hidden;
+    }
+ 
+  .bannerImage {
+    width: 100%;
+    height: 100%;
+    object-fit:cover; /*Изображение покрывает весь контейнер */
+    position: absolute; 
+    z-index: -1; /*Отправляем картинку под контент */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Контейнер для текста внутри баннера */
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 80px 40px;
+    text-align: left;
+    border-radius: 0.625rem;
+    width: 100%;
+  }
+  
+  .title {
+    font-weight: 700;
+    font-size: 6rem;
+  }
+
+
+@media (max-width: 1000px){
+  .title {
+    font-size: 5.6rem; /* Уменьшаем размер шрифта */
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .title {
+    font-size: 4.2rem; /* Уменьшаем размер шрифта */
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .title {
+    font-size: 3.7rem; /* Еще меньше размер шрифта */
+  }
+
+}
+
+@media (max-width: 360px) {
+  
+  .title {
+    font-size: 3.2rem; /* Очень маленький шрифт для маленьких экранов */
+  }
+}

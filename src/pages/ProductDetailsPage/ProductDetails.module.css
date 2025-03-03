@@ -1,0 +1,459 @@
+.productDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "image title"
+        "image price"
+        "image quantity"
+        "image description";
+    gap: 2rem; 
+    padding: 40px;
+    align-items: start;
+    position: relative;
+}
+
+.imageContainer {
+    grid-area: image;
+}
+
+.productImage {
+    width: 100%;
+    max-width: 780px;
+    height: 572px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.titlePriceContainer {
+    width: 100%;
+}
+
+.productTitle {
+    grid-area: title;
+    font-size: 2.5rem;
+    color: #282828;
+}
+
+.priceContainer {
+    grid-area: price;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem; 
+    font-weight: 700;
+}
+
+.discountPrice {
+    color: #424436;
+    font-size: 64px;
+}
+
+.oldPrice {
+    text-decoration: line-through;
+    color: #8B8B8B;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: 18px;
+}
+
+.discountBadge {
+    background-color: #F26D22;
+    color: white;
+    padding: 4px 8px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    margin-bottom: 36px;
+}
+/* Стили для модального окна */
+.modalOverlay {
+    position: fixed;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #28282866; /* Затемненный фон */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    z-index: 1000; /* Убедитесь, что модальное окно поверх других элементов */
+  }
+  
+  .modalContent {
+    /* background-color: white; */
+    top: 180px;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+  
+  .enlargedImage {
+    /* max-width: 100%;
+    max-height: 80vh; */
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 610px;
+    /* border: 10px; */
+    /* object-fit: contain; */
+  }
+  
+  
+  /* .productDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "image title"
+      "image price"
+      "image quantity"
+      "image description";
+    gap: 2rem;
+    padding: 40px;
+    align-items: start;
+  }
+  
+  .imageContainer {
+    grid-area: image;
+    cursor: pointer; 
+  }
+  
+  .productImage {
+    width: 100%;
+    max-width: 780px;
+    height: 572px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+   */
+  /* Остальные стили остаются без изменений */
+
+
+.cartContainer {
+    display: flex;
+    grid-area: quantity;
+    gap: 2rem;
+}
+
+.quantityContainer {
+    display: flex;
+    align-items: center;
+}
+
+.quantityButton {
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    color: #8B8B8B;
+    border-radius: 6px;
+    padding: 17px;
+    width: 58px;
+    height: 58px;
+}
+
+.quantityNumber {
+    font-size: 1.25rem;
+    color: #424436;
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    border-radius: 6px;
+    text-align: center;
+    padding: 16px 44px;
+    font-weight: 600;
+}
+
+.AddToCartButtonWrapper{
+    flex-grow: 1;
+}
+
+.AddToCartButtonWrapper > .addToCartButton{
+    flex-grow: 1;
+}
+
+.addToCartButton {
+    background-color: #92A134;
+    color: white;
+    width: 100%;
+    height: 58px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 6px;
+    flex-grow: 1;
+    border: none;
+}
+
+.descriptionContainer {
+    grid-area: description;
+}
+
+h3 {
+    padding-bottom: 1rem;
+}
+
+.productDescription {
+    font-size: 16px;
+    color: #424436;
+    line-height: 20.8px;
+
+}
+
+.readMoreButton {
+    background: none;
+    border: none;
+    color: #424436;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.readMoreButton:hover {
+    color: #424436;
+}
+
+/* Стили для контейнера кнопки избранного */
+.favoriteButtonContainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+  }
+
+@media (max-width: 1000px){
+    .productDetails {
+        grid-template-areas:
+            "image title"
+            "image price"
+            "image quantity"
+            "image description";
+        row-gap: -1rem;
+    }
+
+    .productImage {
+        width: 100%;
+        height: 572px;
+    }
+
+    .addToCartButton{
+        padding: 0;
+        width: 100%;
+    }
+
+    
+
+    .enlargedImage{
+        width: 100%;
+        max-width: 900px;
+        height: 100%;
+        max-height: 610px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .productDetails {
+        grid-template-areas:
+            "image title"
+            "image price"
+            "image quantity"
+            "description description";
+            gap: 1rem;
+    }
+
+    .productTitle{
+        font-size: 1.5rem;
+    }
+
+    .discountPrice{
+        font-size: 3rem;
+    }
+
+    .oldPrice{
+        font-size: 2rem;
+    }
+
+    .priceContainer{
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .productImage {
+        width: 100%;
+        max-width: 354px;
+        height: 286px;
+        border-radius: 8px;
+    }
+
+    .cartContainer{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+    }
+
+    .addToCartButton{
+        justify-self: start;
+        width: 100%;
+        max-width: 354px;
+        height: 58px;
+    }
+    .quantityContainer{
+        width: 200px;
+        height: 48px;
+    }
+    .enlargedImage{
+        width: 100%;
+        max-width: 728px;
+        height: 100%;
+        max-height: 494px;
+    }
+}
+
+@media (max-width: 572px){
+    .productTitle{
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px){
+    .productDetails {
+        display: grid;
+        grid-template-areas:
+            "title title"
+            "image price"
+            "image quantity"
+            "description description";
+        padding: 32px 20px 47px 20px;
+        position: relative;
+    }
+    .productTitle{
+        font-size: 1.75rem;
+        /* width: 100%; */
+    }
+    .productImage {
+        width: 100%;
+        max-width: 210px;
+        height: 179px;
+        position: relative;
+    }
+    .discountBadge {
+        position: relative;
+        top: 10px;
+        right: 250px;
+        font-size: 1.2rem;
+        padding: 4px 8px;
+    }
+    .priceContainer{
+        display: flex;
+        justify-content: left;
+        align-items: flex-start;
+    }
+    .discountPrice{
+        font-size: 3rem;
+    }
+    .oldPrice{
+        font-size: 1.75rem;
+    }
+    .quantityContainer{
+        width: 100%;
+        height: 40px;
+    }
+    .quantityButton{
+        width: 47px;
+        height: 47px;
+        padding: 10px;
+    }
+    .quantityNumber{
+        width: 47px;
+        height: 47px;
+        padding: 10px 40px;
+    }
+    .addToCartButton {
+        width: 100%;
+        max-width: 210px;
+        height: 47px;
+        font-size: 1.2rem;
+    }
+    .descriptionContainer {
+        text-align: left;
+    }
+    .enlargedImage{
+        width: 100%;
+        max-width: 440px;
+        height: 100%;
+        max-height: 298px;
+    }
+}
+@media (max-width: 360px) {
+    .productDetails {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "title"
+            "image"
+            "price"
+            "quantity"
+            "description";
+        padding: 32px 20px 47px 20px;
+    }
+    .productTitle {
+        font-size: 1.75rem;
+        text-align: start; 
+    }
+    .discountBadge {
+        top: 125px;
+        right: 30px;
+        font-size: 1rem;
+        position: absolute;
+
+    }
+    .priceContainer {
+        gap: 0.5rem;
+        padding-bottom: 0.75rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    .discountPrice {
+        font-size: 2rem; 
+    }
+    .oldPrice {
+        font-size: 1.5rem; 
+        margin-top: 8px;
+    }
+    .cartContainer {
+        padding-bottom: 0.75rem;
+        align-items: center;
+    }
+    .quantityContainer {
+        display: flex;
+        justify-content: center;
+        height: 47px;
+        padding-bottom: 0.75rem;
+    }
+    .addToCartButton {
+        width: 100%; 
+        max-width: 320px;
+        height: 47px;
+        padding: 12px 90px;
+        font-size: 1.1rem;
+    }
+    .productImage {
+        width: 100%;
+        max-width: 320px; 
+        height: 220px;
+    }
+    .imageContainer {
+        position: relative;
+    }
+    .enlargedImage{
+        width: 100%;
+        max-width: 320px;
+        height: 100%;
+        /* max-height: 216px; */
+    }
+
+}

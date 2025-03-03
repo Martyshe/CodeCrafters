@@ -1,0 +1,58 @@
+.iconButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s ease; 
+}
+.iconImage {
+    width: 48px;
+    height: 48px;
+    transition: filter 0.2s ease; 
+}
+
+.iconButton:hover .iconImage {
+    filter: brightness(0) saturate(100%) invert(24%) sepia(9%) saturate(1702%) hue-rotate(34deg) brightness(93%) contrast(88%);
+}
+
+.iconButton.active .iconImage {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(23%) saturate(700%) hue-rotate(35deg) brightness(90%) contrast(85%);
+}
+
+.iconButton.active:hover .iconImage {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(23%) saturate(683%) hue-rotate(35deg) brightness(90%) contrast(85%);
+}
+
+/* .iconButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: filter 0.2s ease;
+}
+
+.iconImage {
+    width: 48px;
+    height: 48px;
+    transition: filter 0.2s ease;
+   
+    filter: brightness(0) invert(1); 
+}
+
+
+.iconButton:not(.active):hover .iconImage {
+    filter: brightness(0) saturate(100%); 
+}
+
+
+.iconButton.active .iconImage {
+    filter: brightness(0) saturate(100%) 
+            invert(67%) sepia(23%) saturate(700%) 
+            hue-rotate(35deg) brightness(90%) contrast(85%);
+}
+
+
+.iconButton.active:hover .iconImage {
+    filter: brightness(0) saturate(100%) 
+            invert(67%) sepia(23%) saturate(700%) 
+            hue-rotate(35deg) brightness(90%) contrast(85%);
+} */
+

@@ -7,8 +7,9 @@ export default function CategoryCard({ image, title }) {
     <div className={s.categoryCard}>
       <div>
         <img src={`${back}${image}`} alt={title}></img>
+        <p>{title}</p> 
       </div>
-      <p>{title}</p>
+
     </div>
   );
 }

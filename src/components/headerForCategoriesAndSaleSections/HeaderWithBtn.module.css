@@ -37,13 +37,29 @@ h2 {
   border: #dddddd 1px solid;
   border-radius: 0.3rem;
   background-color: transparent;
+  cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  h2{
+    font-size: 3.5rem;
 
+  }
+}
+
+@media (max-width: 480px) {
+  h2{
+    font-size: 3rem;
+  }
+}
 
 @media (max-width: 360px) {
-  
+  h2{
+    font-size: 2.5rem;
+  }
 }
+
+
 
 @media (max-width: 500px) {
   .lineButtonCont {

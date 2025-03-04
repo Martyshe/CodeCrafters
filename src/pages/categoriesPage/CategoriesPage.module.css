@@ -1,0 +1,26 @@
+.cardsContainer > :first-child > :first-child {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+}
+
+@media (max-width: 1000px) {
+    .cardsContainer > :first-child > :first-child {
+        grid-template-columns: 1fr 1fr 1fr
+    }
+}
+@media (max-width: 768px) {
+    .cardsContainer > :first-child > :first-child {
+        grid-template-columns: 1fr 1fr 
+    }
+}
+/* @media (max-width: 480px) {
+    .cardsContainer > :first-child > :first-child {
+        grid-template-columns: 1fr 1fr
+    }
+} */
+@media (max-width: 360px) {
+    .cardsContainer > :first-child > :first-child {
+        grid-template-columns: 1fr 
+    }
+}

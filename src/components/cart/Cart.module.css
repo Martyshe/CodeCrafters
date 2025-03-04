@@ -1,0 +1,455 @@
+.mainContainer {
+  max-width: 100%;
+  padding: 2rem;
+  color: #424436;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  
+}
+
+.cardsContainer {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+}
+
+.cartItem {
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
+  display: flex;
+  align-items: center;
+  /* background: white; */
+  border-radius: 1rem;
+  padding: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 100%;
+}
+
+.cartItem > img {
+  width: 200px;
+  height: 192px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.itemDetails {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 2rem;
+  gap: 2rem;
+  max-width: 100%;
+}
+
+.itemDetails > h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.currentPrice {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #424436;
+}
+
+.oldPrice {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: gray;
+  text-decoration: line-through;
+  margin-top: 0.8rem;
+  margin-left: 1rem;
+}
+
+.controlsPriceContainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+}
+
+.quantityControls > button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid gray;
+  background: transparent;
+  color: gray;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantityControls > .quantities {
+  /* width: 2.5rem; */
+  height: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #424436;
+  padding: 0.4rem 2rem;
+  margin: -5%;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  /* background-color: var(--contact-box-bg); */
+  color: var(--contact-box-text);
+}
+.removeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #424436;
+  font-weight: 300;
+  line-height: 12px;
+  color: var(--contact-box-text);
+}
+
+.removeButton:hover {
+  color: #c9302c;
+}
+
+.formContainer {
+  background-color: #f2f6d3;
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  max-height: min-content;
+}
+
+.formContainer > .title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.formContainer > p {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #8b8b8b;
+}
+.priceWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.priceWrapper > p {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #8B8B8B;
+}
+
+.totalPrise {
+  font-size: 4rem;
+  color: #424436;
+  padding-left: 1rem;
+}
+
+.formContainer > .form {
+  display: grid;
+  gap: 1rem;
+}
+
+.formContainer > .form > .input {
+  padding: 1rem 0 1rem 1rem;
+  border: 1px solid grey;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  color: #424436;
+  max-width: 100%;
+}
+
+.formContainer > .form > .input::placeholder {
+  color: #8b8b8b;
+  opacity: 0.8;
+}
+
+.button {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  background-color: #92a134;
+  color: white;
+}
+
+.emptyCart {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #424436;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 60%;
+}
+
+/* .emptyCart > button {
+  padding: 1rem;
+  padding: 1rem 2rem;
+  max-width: 20rem;
+} */
+.continueShopping {
+  padding: 1rem;
+  padding: 1rem 2rem;
+  max-width: 400px;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  background-color: #92a134;
+  color: white;
+}
+
+@media (max-width: 1128px) {
+  .totalPrise {
+    font-size: 3rem;
+  }
+  .formContainer > p {
+    font-size: 2rem;
+  }
+  .formContainer > h2 {
+    font-size: 2rem;
+  }
+  .priceWrapper > p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .cardsContainer {
+    width: 50%;
+  }
+
+  .formContainer {
+    width: 50%;
+  }
+
+  .cartItem > img {
+    width: 200px;
+    height: 100%;
+  }
+
+  .itemDetails {
+    gap: 0.5rem;
+  }
+  .itemDetails > h3 {
+    font-size: 1rem;
+  }
+  .priceContainer {
+    gap: 0.3rem;
+  }
+ 
+  .controlsPriceContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: start;
+  }
+
+  .formContainer > p {
+    font-size: 1.5rem;
+  }
+  .formContainer > h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 880px) {
+  .mainContainer {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cardsContainer {
+    width: 100%;
+  }
+
+  .formContainer {
+    width: 100%;
+  }
+
+  .totalPrise {
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 520px) {
+  .formContainer > .title {
+    font-size: 2.5rem !important
+  }
+  .priceWrapper {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cartItem > img {
+    width: 180px;
+  }
+  .cartItem {
+    gap: 0.2rem;
+  }
+  .itemDetails > h3 {
+    font-size: 0.9rem;
+  }
+  .currentPrice {
+    font-size: 1.8rem;
+    margin-top: 7px;
+    margin-right: 10px;
+  }
+  .oldPrice {
+    margin-left: 0.1rem;
+    font-size: 1.3rem;
+    /* margin-bottom: 2px; */
+  }
+}
+
+@media (max-width: 440px) {
+  .formContainer > .title {
+    font-size: 2rem !important
+  }
+  .priceWrapper {
+    font-size: 1rem !important
+  }
+  .priceWrapper > span {
+    font-size: 2.5rem !important;
+    font-weight: 400;
+    color: #424436;
+
+  }
+  .cartItem {
+    gap: 0.1rem;
+  }
+  .cartItem > img {
+    width: 150px;
+  }
+  
+}
+@media (max-width: 410px) {
+  .currentPrice {
+    font-size: 1.6rem;
+  }
+  .oldPrice {
+    margin-left: 0.1rem;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+  .priceContainer {
+    align-items: end;
+  }
+  .itemDetails > h3 {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 380px) {
+.priceContainer {
+  gap: 0.2rem;
+}
+.currentPrice {
+  font-size: 1.5rem;
+}
+.oldPrice {
+  margin-left: 0.1rem;
+  font-size: 1rem;
+}
+.cartItem > img {
+  width: 110px;
+}
+}
+
+
+
+/* модалка */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.successModal {
+  background-color: #92A134;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  color: white;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 0.8rem;
+  font-weight: 300;
+  line-height: 1;
+  transition: opacity 0.3s ease;
+}
+
+.closeButton:hover {
+  opacity: 0.8;
+}
+
+.modalTitle {
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.modalTextWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.modalText {
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 600;
+}

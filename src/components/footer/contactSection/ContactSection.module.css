@@ -1,0 +1,180 @@
+.contactContainer {
+  padding: 2rem;
+  color: #424436;
+}
+
+.contactTitle {
+  margin-bottom: 2rem;
+  font-size: 4rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  max-width: 100%;
+}
+
+/* .contactBox {
+  background-color: #f2f6d3;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+} */
+.contactBox {
+  background-color: #f2f6d3;
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.contactBox > h3 {
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: #8b8b8b;
+}
+
+.contactBox > a {
+  white-space: nowrap;
+}
+
+.contactBox > :nth-child(2) {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: start;
+}
+
+.socialIcons {
+  display: flex;
+  width: auto;
+  gap: 1rem;
+}
+
+a.phoneLink {
+  text-decoration: none;
+  color: #424436;
+}
+
+.mapContainer {
+  margin-top: 32px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+  height: 30vh;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.625rem;
+}
+
+@media (max-width: 1440px) {
+  .contactGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .contactGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .contactTitle {
+    font-size: 3.5rem;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactBox {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactContainer{
+    padding: 32px 20px 47px 20px;
+  }
+
+  .contactTitle {
+    font-size: 3rem;
+  }
+
+  .contactGrid > :nth-child(2) {
+    flex-direction: row;
+  }
+
+  .phoneLink {
+    font-size: 10px;
+  }
+
+  .contactBox > h3 {
+    font-size: 1.1rem;
+  }
+
+  .contactBox > a,
+  .contactBox > p {
+    font-size: 1.75rem !important;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactBox {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contactContainer{
+    padding: 32px 20px 47px 20px;
+  }
+  
+  .contactTitle {
+    font-size: 2.5rem;
+  }
+
+  .contactGrid > :nth-child(2) {
+    flex-direction: row;
+  }
+
+  .phoneLink {
+    font-size: 10px;
+  }
+
+  .contactBox > h3 {
+    font-size: 1.1rem;
+  }
+
+  .contactBox > a,
+  .contactBox > p {
+    font-size: 1.75rem !important;
+  }
+
+  .contactBox {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .contactGrid {
+    width: 100%;
+  }
+}

@@ -1,0 +1,133 @@
+
+/* .cardsContainer {
+  position: relative;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px #dddddd solid;
+  width: 100%;
+  max-width: 22vw;
+  transition: transform 0.3s ease;
+
+} */
+
+.cardsContainer {
+  position: relative;
+  width: 100%;
+  max-width: 22vw;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px #dddddd solid;
+  background-color: var(--contact-box-bg);
+  color: var(--contact-box-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cardsContainer:hover {
+  transform: translateY(-5px);
+}
+.cardsContainer > img {
+  /* object-fit: cover; */
+  width: 100%;
+  /* max-width: 316px; */
+  height: 284px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #fffff1;
+}
+.divideLine {
+  height: 0.5px;
+  border: 0.5px #dddddd solid;
+}
+.itemName {
+  white-space: nowrap; /* Запрещает перенос на новую строку */
+  overflow: hidden; /* Обрезает текст, выходящий за границы */
+  text-overflow: ellipsis; /* Добавляет "..." в конце */
+  /* width: 19.75rem;  */
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.actualPrice {
+  padding: 1rem 2rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.oldPrice {
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration-line: line-through;
+  color: #8b8b8b;
+}
+.discountBadge {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.3rem;
+  max-width: 4rem;
+}
+.badgesContainer {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.badgesContainer > img {
+  width: 3rem;
+  height: 3rem;
+}
+.product-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+@media (max-width: 1015px){
+  .cardsContainer{
+      max-width: 22vw;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  /* .cardsContainer > img{
+    width: 100%;
+    max-width: 225px;
+    height: 250px;
+  } */
+}
+
+@media (max-width: 768px){
+  .cardsContainer{
+      max-width: 45vw;
+      grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 480px){
+  .cardsContainer{
+    max-width: 43vw;
+  }
+
+  .actualPrice{
+    font-size: 2.25rem;
+    font-weight: 600;
+  }
+
+  .oldPrice{
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 360px){
+  .cardsContainer{
+      max-width: 82vw;
+    
+  }
+}

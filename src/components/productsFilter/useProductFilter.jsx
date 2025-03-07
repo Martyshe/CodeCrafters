@@ -1,3 +1,9 @@
+
+// useState:products-хранит полный список товаров,
+// filteredProducts-хранит отфильтрованный и отсортированный список товаров,
+// filters-хранит текущие настройки фильтрации
+
+
 import { useState, useEffect } from "react";
 import { back } from "../../constants";
 
@@ -73,7 +79,8 @@ export function useProductFilter(initialFilters, selectedCategory = null, extern
 
     applyFiltersAndSort();
   }, [filters, products, selectedCategory]);
-
+//Позволяет обновлять фильтры динамически. 
+// Она принимает новый объект фильтров и объединяет его с текущими
   const handleFilterChange = (newFilters) => {
     setFilters(prev => ({ ...prev, ...newFilters }));
   };

@@ -11,6 +11,17 @@ import { addToFavorites, removeFromFavorites } from "../../redux/favoritesSlice"
 import IconButton from "../iconComponent/IconButton";
 import heartIcon from "../../badges/Vector.svg";
 
+
+// Ты создала модальное окно, которое показывает товар дня со скидкой 50%. Пользователь может добавить этот товар в корзину.
+// Как это работает:
+// Заголовок: В модальном окне отображается заголовок "50% discount on product of the day!".
+// Изображение товара: Ты используешь <img>, чтобы показать изображение товара. Путь к изображению формируется с помощью переменной back (базовый URL сервера).
+// Цены: Ты показываешь старую цену и новую цену со скидкой 50%.
+// Кнопка "Добавить в корзину": При нажатии на кнопку товар добавляется в корзину через Redux (dispatch(addToCart)), а модальное окно закрывается.
+// Зачем это нужно:
+// Модальное окно привлекает внимание пользователя к специальному предложению и стимулирует покупки. Это эффективный способ увеличить продажи.
+
+
 const ProductOfTheDayModal = ({ product, closeModal }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.items);

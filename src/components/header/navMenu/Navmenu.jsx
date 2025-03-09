@@ -8,28 +8,45 @@ import { useSelector } from "react-redux";
 import { back } from "../../../constants";
 import ProductOfTheDayModal from "../../productOfTheDayModal/ProductOfTheDayModal";
 
+
+
+// Ты создала компонент NavMenu, который включает логотип, навигационное меню, иконки (сердце и корзина), 
+// бургер-меню для мобильных устройств и модальное окно с товаром дня.
+// Как это работает:
+// Логотип и тема: Логотип отображается с помощью <img>, а рядом находится кнопка для переключения темы (ThemeBtn).
+// Навигация: Ты используешь <nav> и <ul> для создания меню с ссылками на основные страницы (главная, категории, все товары, все скидки).
+// Иконки: Иконки "сердце" и "корзина" отображаются с помощью <img>. На иконке корзины показывается количество товаров (cartCount), которое берется из Redux.
+// Бургер-меню: При нажатии на иконку бургера (burgerMenu) открывается выпадающее меню. Это реализовано через состояние isMenuOpen и CSS-классы.
+// Модальное окно: При нажатии на кнопку "1 day discount!" открывается модальное окно с товаром дня. Товар выбирается случайным образом из списка всех товаров.
+// Зачем это нужно:
+// Хедер — это главная навигационная панель сайта. Он помогает пользователю быстро находить нужные разделы, видеть количество товаров в корзине и узнавать о текущих акциях.
+
+
+
+
 const NavMenu = () => {
-  // Получаем данные корзины из Redux store
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalUniqueItems = cartItems.length;
+  // Получаю данные корзины из Redux store,useSelector забирает данные из Redux.
+  const cartItems = useSelector((state) => state.cart.items); 
+  const totalUniqueItems = cartItems.length;// Количество уникальных товаров в корзине
 
   const favorites = useSelector(state => state.favorites?.items || []);
-  const favoritesCount = favorites.length;
+  const favoritesCount = favorites.length;// Количество товаров в избранном
 
   // Вычисляем общее количество товаров
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для управления бургерным меню
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для управления бургерным меню,отслеживает, открыто меню или нет.
 
-  const toggleMenu = () => {
+  const toggleMenu = () => { // Функция для открытия/закрытия бургерного меню
     setIsMenuOpen(!isMenuOpen); // Переключаем состояние меню
   };
   // const dispatch = useDispatch(); // Создаем dispatch
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [productOfTheDay, setProductOfTheDay] = useState(null);
-  const [allProducts, setAllProducts] = useState([]);
+  //  Состояния для модального окна и товаров
+  const [isModalOpen, setIsModalOpen] = useState(false);// Открыто ли модальное окно
+  const [productOfTheDay, setProductOfTheDay] = useState(null);// Хранит "товар дня"
+  const [allProducts, setAllProducts] = useState([]);// Хранит список всех товаров
   // const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null);// Состояние для ошибок загрузки
 
   // Загрузка всех продуктов с сервера
   useEffect(() => {
@@ -37,10 +54,10 @@ const NavMenu = () => {
       .then((response) => response.json())
       .then((data) => {
         setAllProducts(data);
-        console.log(" Проверяю данных перед отправкой в Redux:", data);
+       
         // dispatch(setProducts(data));
         // setIsLoading(false);
-        console.log("Загруженные товары:", data); // проверка, есть ли товары
+        
       })
       .catch((error) => {
         setError(error);
@@ -51,7 +68,7 @@ const NavMenu = () => {
   //  товара со скидкой 50%
   const selectRandomProductOfTheDay = () => {
     if (allProducts.length > 0) {
-      const randomIndex = Math.floor(Math.random() * allProducts.length);
+      const randomIndex = Math.floor(Math.random() * allProducts.length); //  округляю число вниз до ближ. целого
       const selectedProduct = { ...allProducts[randomIndex], discount: 50 };
       setProductOfTheDay(selectedProduct);
       return selectedProduct; // Теперь можно сразу использовать
@@ -75,7 +92,7 @@ const NavMenu = () => {
         <div className={styles.logo}>
           <img src={logo} alt="logo" className={styles.logoImage} />
         </div>
-        <ThemeBtn />
+        <ThemeBtn /> {/* кнопка смены темы */}
       </div>
 
       {/* Средняя часть - кнопка скидки и меню */}
@@ -113,7 +130,7 @@ const NavMenu = () => {
       {/* Правая часть - иконки "сердце", "сумка" и бургерное меню */}
       <div className={styles.headerIcon}>
   <button className={styles.icon}>
-    <a href="/favorites" className={styles.cartLink}>
+    <a href="/favorites" className={styles.cartLink}>   {/*  переход в избранное*/}
       <img src={heartIcon} alt="Сердце" />
       {favoritesCount > 0 && (
         <span className={styles.favoritesCounter}>{favoritesCount}</span>
@@ -121,7 +138,7 @@ const NavMenu = () => {
     </a>
   </button>
   <button className={styles.icon}>
-    <a href="/cart" className={styles.cartLink}>
+    <a href="/cart" className={styles.cartLink}>  {/*  переход в корзину*/}
       <img src={bagIcon} alt="Сумка" />
       {cartCount > 0 && (
         <span className={styles.cartCounter}>{totalUniqueItems}</span>
@@ -134,7 +151,8 @@ const NavMenu = () => {
         <button
           className={styles.burgerMenu}
           onClick={toggleMenu}
-          aria-label="Open menu"
+          // для кнопок, чтобы screen readers могли правильно озвучить их назначение.
+          aria-label="Open menu" 
         >
           <span className={styles.burgerLine}></span>
           <span className={styles.burgerLine}></span>
@@ -155,6 +173,7 @@ const NavMenu = () => {
         <button
           className={styles.closeButton}
           onClick={toggleMenu}
+          // для кнопок, чтобы screen readers могли правильно озвучить их назначение.
           aria-label="Close menu"
         >
           &times;
